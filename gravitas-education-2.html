@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravitas Education – Unleash Your Potential</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/gravitas.css">
+</head>
+
+<body>
+
+  <!-- ── TOP BAR ── -->
+  <div class="topbar">
+    <div class="tb-l"><span class="star">⭐</span> Trusted by 1,000+ Students &amp; Parents in Dehradun</div>
+    <div class="tb-r">
+      <a href="#">🕐 Mon–Sat: 8:00 AM – 7:00 PM</a>
+      <a href="tel:8218464463">📞 8218464463</a>
+      <a href="https://wa.me/918218464463" class="tb-wa">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- ── NAV ── -->
+  <div class="nav-wrap">
+    <nav id="mainNav">
+      <a class="logo" href="#">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+          <div class="ln">GRAVITAS EDUCATION</div>
+          <div class="ls">Coaching Institute · Dehradun</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" class="act">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Success Stories</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+      <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire
+        Now</button>
+    </nav>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <!-- Video BG -->
+    <div class="hero-vid">
+      <video id="v0" class="on" autoplay muted loop playsinline preload="auto"
+        poster="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1800&q=85">
+        <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+      <video id="v1" muted loop playsinline preload="none"
+        poster="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1800&q=85">
+        <source src="https://videos.pexels.com/video-files/5198267/5198267-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+      <video id="v2" muted loop playsinline preload="none"
+        poster="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1800&q=85">
+        <source src="https://videos.pexels.com/video-files/8199553/8199553-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-ov"></div>
+    <button class="vm" id="muteBtn">🔇</button>
+
+    <div class="hero-inner">
+      <!-- LEFT -->
+      <div>
+        <div class="hero-tag" style="opacity:0;animation:fu .7s ease .1s forwards">
+          Learn Better · Score Higher · Shape Your Future
+        </div>
+        <h1 style="opacity:0;animation:fu .7s ease .22s forwards">
+          Quality Coaching for<br><span>Classes 1 to 12</span>
+        </h1>
+        <div class="hero-boards" style="opacity:0;animation:fu .7s ease .34s forwards">
+          ICSE &nbsp;|&nbsp; ISC &nbsp;|&nbsp; CBSE &nbsp;|&nbsp; CUET
+        </div>
+        <p class="hero-desc" style="opacity:0;animation:fu .7s ease .44s forwards">
+          Conceptual learning, personalised attention and result-oriented preparation to help students achieve their
+          dream scores. Classes 1–12 across Science, Commerce &amp; Humanities.
+        </p>
+        <div class="hero-feats" style="opacity:0;animation:fu .7s ease .54s forwards">
+          <div class="hf"><span class="hf-i">👨‍🏫</span>Expert &amp; Experienced Faculty</div>
+          <div class="hf"><span class="hf-i">💻</span>Live Interactive Classes</div>
+          <div class="hf"><span class="hf-i">📊</span>Regular Tests &amp; Analysis</div>
+          <div class="hf"><span class="hf-i">📚</span>Comprehensive Material</div>
+        </div>
+        <div class="hero-btns" style="opacity:0;animation:fu .7s ease .64s forwards">
+          <a href="#courses" class="btn-b">Explore Courses</a>
+          <a href="#contact" class="btn-ob">📥 Download Brochure</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Callback card -->
+      <div class="cb-card rv">
+        <h3>Request a Call Back</h3>
+        <p class="sub">We will connect with you shortly!</p>
+        <input class="fi" type="text" placeholder="Parent / Student Name">
+        <input class="fi" type="tel" placeholder="Mobile Number">
+        <input class="fi" type="text" placeholder="City">
+        <select class="fi fi-s">
+          <option value="" disabled selected>Class / Exam Interested In</option>
+          <option>Class 1–5 (Foundation)</option>
+          <option>Class 6–8</option>
+          <option>Class 9–10 (ICSE / CBSE)</option>
+          <option>Class 11–12 (ISC / CBSE)</option>
+          <option>CUET Preparation</option>
+        </select>
+        <button class="cb-btn" id="cbBtn">Request Callback</button>
+        <div class="cb-note">🔒 Your information is safe with us.</div>
+      </div>
+    </div>
+
+    <!-- video dots -->
+    <div class="vid-bar">
+      <button class="vd on" data-v="0"></button>
+      <button class="vd" data-v="1"></button>
+      <button class="vd" data-v="2"></button>
+    </div>
+  </section>
+
+  <!-- ── STATS BAR ── -->
+  <div class="sbar">
+    <div class="sb">
+      <div class="sb-ico">👨‍🎓</div>
+      <div class="sb-n">120+</div>
+      <div class="sb-l">Happy Students</div>
+    </div>
+    <div class="sb">
+      <div class="sb-ico">👩‍🏫</div>
+      <div class="sb-n">15+</div>
+      <div class="sb-l">Expert Teachers</div>
+    </div>
+    <div class="sb">
+      <div class="sb-ico">🏆</div>
+      <div class="sb-n">95%+</div>
+      <div class="sb-l">Success Rate</div>
+    </div>
+    <div class="sb">
+      <div class="sb-ico">🏛️</div>
+      <div class="sb-n">5+</div>
+      <div class="sb-l">Years of Excellence</div>
+    </div>
+  </div>
+
+  <!-- ── COURSES ── -->
+  <section class="courses" id="courses">
+    <div class="sec-inner">
+      <div class="rv">
+        <div class="sec-hl"><span>Our Courses</span></div>
+        <h2 class="sttl">Academic <span>Programmes</span></h2>
+        <p class="sdesc">Expert guidance across all boards and streams — from foundational learning to board exams and
+          competitive entrance prep.</p>
+      </div>
+      <div class="c-grid">
+        <div class="cc rv">
+          <div class="cc-ic">📘</div>
+          <div class="cc-h">Classes 1 to 5</div>
+          <div class="cc-s">Strong Foundation</div>
+          <ul class="cc-ul">
+            <li>All Subjects</li>
+            <li>Concept Building</li>
+            <li>Activity Based Learning</li>
+            <li>ICSE &amp; CBSE Boards</li>
+          </ul>
+          <button class="cc-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn
+            More</button>
+        </div>
+        <div class="cc rv">
+          <div class="cc-ic">📗</div>
+          <div class="cc-h">Classes 6 to 10</div>
+          <div class="cc-s">CBSE / ICSE</div>
+          <ul class="cc-ul">
+            <li>All Core Subjects</li>
+            <li>Doubt Solving Sessions</li>
+            <li>Regular Tests</li>
+            <li>Board Exam Preparation</li>
+          </ul>
+          <button class="cc-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn
+            More</button>
+        </div>
+        <div class="cc rv">
+          <div class="cc-ic">🎓</div>
+          <div class="cc-h">Classes 11 &amp; 12</div>
+          <div class="cc-s">CBSE / ISC</div>
+          <ul class="cc-ul">
+            <li>Science / Commerce / Arts</li>
+            <li>Board Exam Preparation</li>
+            <li>Concept + Application</li>
+            <li>Career Guidance</li>
+          </ul>
+          <button class="cc-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn
+            More</button>
+        </div>
+        <div class="cc rv">
+          <div class="cc-ic">🎯</div>
+          <div class="cc-h">CUET Preparation</div>
+          <div class="cc-s">UG Entrance Exam</div>
+          <ul class="cc-ul">
+            <li>All CUET Domains</li>
+            <li>Mock Tests</li>
+            <li>Strategy + Mentorship</li>
+            <li>Full Syllabus Coverage</li>
+          </ul>
+          <button class="cc-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn
+            More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY + PRICING ── -->
+  <section class="wp" id="why">
+    <div class="wp-grid">
+      <!-- WHY -->
+      <div>
+        <div class="rv">
+          <div class="lbl">Why Choose Gravitas?</div>
+          <h2 class="sttl" style="text-align:left;font-size:1.7rem;margin-bottom:6px">What Makes Us
+            <span>Different</span></h2>
+        </div>
+        <div class="w-img rv"></div>
+        <div class="rv">
+          <div class="wi">
+            <div class="wic">✓</div>
+            <p><strong>Personalised attention</strong> with small, focused batch sizes for every student</p>
+          </div>
+          <div class="wi">
+            <div class="wic">✓</div>
+            <p><strong>Conceptual clarity</strong> with a practical, application-first approach to learning</p>
+          </div>
+          <div class="wi">
+            <div class="wic">✓</div>
+            <p><strong>Regular assessments</strong> &amp; detailed performance tracking after every test</p>
+          </div>
+          <div class="wi">
+            <div class="wic">✓</div>
+            <p><strong>Experienced faculty</strong> with a proven record of outstanding academic results</p>
+          </div>
+          <div class="wi">
+            <div class="wic">✓</div>
+            <p><strong>Doubt clearing sessions</strong> &amp; one-on-one mentoring support always available</p>
+          </div>
+          <div class="wi">
+            <div class="wic">✓</div>
+            <p><strong>Parent-teacher interaction</strong> with regular, transparent progress updates</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRICING -->
+      <div id="pricing" class="rv">
+        <div class="lbl">Fee Structure (Monthly)</div>
+        <h2 class="sttl" style="text-align:left;font-size:1.7rem;margin-bottom:6px">Affordable <span>Monthly Fees</span>
+        </h2>
+        <p class="p-sub">Quality education at transparent, honest pricing. No hidden charges.</p>
+        <div class="p-grid">
+          <div class="pc">
+            <div class="pc-cl">Classes 1 to 5</div>
+            <div class="pc-pr">₹1,500<small>/month</small></div>
+            <button class="pc-enroll"
+              onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+          </div>
+          <div class="pc hot">
+            <div class="pc-cl">Classes 6 to 10</div>
+            <div class="pc-pr">₹2,000<small>/month</small></div>
+            <button class="pc-enroll"
+              onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+          </div>
+          <div class="pc">
+            <div class="pc-cl">Classes 11 &amp; 12</div>
+            <div class="pc-pr">₹2,500<small>/month</small></div>
+            <button class="pc-enroll"
+              onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+          </div>
+          <div class="pc">
+            <div class="pc-cl">CUET Preparation</div>
+            <div class="pc-pr">₹2,500<small>/month</small></div>
+            <button class="pc-enroll"
+              onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+          </div>
+        </div>
+        <p class="p-note">🎁 Discounts available for early enrolment and siblings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTS + TESTIMONIALS ── -->
+  <section class="rt" id="testimonials">
+    <div class="rt-inner">
+      <div class="rv">
+        <div class="rs-title">Our Results <span>Speak</span></div>
+        <div class="rn">
+          <div class="rnc">
+            <div class="rnc-n">98%</div>
+            <div class="rnc-l">Board Results above 90%</div>
+          </div>
+          <div class="rnc">
+            <div class="rnc-n">120+</div>
+            <div class="rnc-l">Students Scored 95% &amp; Above</div>
+          </div>
+          <div class="rnc">
+            <div class="rnc-n">5+</div>
+            <div class="rnc-l">Years of Academic Excellence</div>
+          </div>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="rs-title">What <span>Students</span> Say</div>
+        <div class="tc">
+          <div class="tc-txt">"The teachers explain concepts so well and regular tests really helped me improve. I
+            scored 96% in my board exams!"</div>
+          <div class="tc-auth">Ananya Sharma <span>— Class 10, ICSE</span></div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+        <div class="tc">
+          <div class="tc-txt">"Gravitas helped me crack CUET with a great score. The mentorship and study material were
+            excellent throughout!"</div>
+          <div class="tc-auth">Arjun Mehta <span>— CUET 2024</span></div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="rs-title">What <span>Parents</span> Say</div>
+        <div class="tc">
+          <div class="tc-txt">"We are happy with the progress our child has made. The team is supportive and always
+            available for our queries."</div>
+          <div class="tc-auth">Rajesh Kumar <span>— Parent</span></div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+        <div class="tc">
+          <div class="tc-txt">"My daughter went from average to topping the class in just one year. The personal
+            attention here is unmatched."</div>
+          <div class="tc-auth">Priya Sharma <span>— Parent, ISC</span></div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ── -->
+  <div class="cta-ban">
+    <div class="cta-ico">🎓</div>
+    <div class="cta-txt">
+      <h3>Admissions Open for 2025–26</h3>
+      <p>Limited seats available! Enroll now and take the first step towards success.</p>
+    </div>
+    <div class="cta-r">
+      <div class="cta-badge">🚀 2nd Centre Coming Soon</div>
+      <button class="btn-w" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire Now
+        →</button>
+    </div>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="rv">
+        <div class="lbl">Get In Touch</div>
+        <h2 class="sttl" style="text-align:left;font-size:1.7rem;margin-bottom:10px">Start Your <span>Journey
+            Today</span></h2>
+        <p style="font-size:14px;color:var(--gray);margin-bottom:26px;line-height:1.7">Fill in the form and our team
+          will reach out within 24 hours to discuss how Gravitas Education can help your child achieve their full
+          potential.</p>
+        <div class="cf-grid" style="margin-bottom:12px">
+          <div class="fg"><label>Parent's Name</label><input class="fi2" type="text" placeholder="Your full name"></div>
+          <div class="fg"><label>Student's Name</label><input class="fi2" type="text" placeholder="Student's name">
+          </div>
+          <div class="fg"><label>Phone Number</label><input class="fi2" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="fg"><label>Email Address</label><input class="fi2" type="email" placeholder="your@email.com">
+          </div>
+          <div class="fg"><label>Class / Grade</label>
+            <select class="fi2 fi2-s">
+              <option value="">Select Class</option>
+              <option>Class 1–5</option>
+              <option>Class 6–8</option>
+              <option>Class 9–10</option>
+              <option>Class 11–12</option>
+              <option>CUET Preparation</option>
+            </select>
+          </div>
+          <div class="fg"><label>Board</label>
+            <select class="fi2 fi2-s">
+              <option value="">Select Board</option>
+              <option>ICSE / ISC</option>
+              <option>CBSE</option>
+              <option>CUET</option>
+            </select>
+          </div>
+        </div>
+        <textarea class="fi2" style="height:78px;resize:none;width:100%"
+          placeholder="Message or questions (optional)..."></textarea>
+        <button class="msub" id="mainSub">Submit Enquiry →</button>
+      </div>
+      <div class="rv">
+        <h3 style="font-size:20px;font-weight:800;color:var(--d);margin-bottom:6px">Contact Information</h3>
+        <p style="font-size:13.5px;color:var(--gray);margin-bottom:22px;line-height:1.6">Our team is available Monday to
+          Saturday. We'd love to help your child grow.</p>
+        <div class="ci-box">
+          <div class="ci-top">
+            <div class="ci-item">
+              <div class="ci-ico">📞</div>
+              <div>
+                <div class="ci-lbl">Phone</div>
+                <div class="ci-val">8218464463 / 0135-3135215</div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-ico">🌐</div>
+              <div>
+                <div class="ci-lbl">Website</div>
+                <div class="ci-val">www.gravitasedu.com</div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-ico">📍</div>
+              <div>
+                <div class="ci-lbl">Location</div>
+                <div class="ci-val">Dehradun, Uttarakhand<br><span class="new-tag">2nd Centre Opening Soon</span></div>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-ico">🕐</div>
+              <div>
+                <div class="ci-lbl">Hours</div>
+                <div class="ci-val">Mon–Sat: 8:00 AM – 7:00 PM</div>
+              </div>
+            </div>
+          </div>
+          <div class="ci-bot">
+            <div class="soc-lbl">Follow Us</div>
+            <div class="soc-links">
+              <a href="#" class="soc-a">📷</a>
+              <a href="#" class="soc-a">👍</a>
+              <a href="#" class="soc-a">▶</a>
+              <a href="https://wa.me/918218464463" class="soc-a">💬</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="ft">
+      <div class="ft-grid">
+        <div>
+          <div class="ft-logo">
+            <div class="ft-logo-ico">G</div>
+            <div>
+              <div class="ft-logo-name">GRAVITAS EDUCATION</div>
+              <div class="ft-logo-sub">Coaching Institute · Dehradun</div>
+            </div>
+          </div>
+          <p class="ft-desc">Empowering students from Classes 1 to 12 with quality education for ICSE, ISC, CBSE and
+            CUET. Building concepts, shaping careers, unleashing potential.</p>
+          <div class="ft-socs">
+            <a href="#" class="fts">📷</a><a href="#" class="fts">👍</a><a href="#" class="fts">▶</a><a href="#"
+              class="fts">💬</a>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#why">Why Us</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#testimonials">Success Stories</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="#courses">Classes 1 to 5</a></li>
+            <li><a href="#courses">Classes 6 to 10 (CBSE/ICSE)</a></li>
+            <li><a href="#courses">Classes 11 &amp; 12 (CBSE/ISC)</a></li>
+            <li><a href="#courses">CUET Preparation</a></li>
+          </ul>
+        </div>
+        <div class="ft-col ft-ct">
+          <h4>Contact Us</h4>
+          <p><span>📍</span>Dehradun, Uttarakhand<br>2nd Centre — Opening Soon</p>
+          <p><span>📞</span>8218464463 / 0135-3135215</p>
+          <p><span>🌐</span>www.gravitasedu.com</p>
+          <p><span>🕐</span>Mon–Sat: 8:00 AM – 7:00 PM</p>
+        </div>
+      </div>
+      <div class="ft-bot">
+        <p>© 2026 Gravitas Education, Dehradun. All Rights Reserved.</p>
+        <div class="ft-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+      </div>
+    </div>
+  </footer>
+   <script src="js/gravitas.js"></script>
+ 
+</body>
+
+</html>

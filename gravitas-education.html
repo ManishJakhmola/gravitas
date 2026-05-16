@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravitas Education – Unleash Your Potential</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue-dark:#0a2463;
+  --blue-mid:#1a4ba0;
+  --blue:#2563c4;
+  --blue-light:#3b82f6;
+  --blue-pale:#dbeafe;
+  --blue-xpale:#eff6ff;
+  --white:#ffffff;
+  --off-white:#f8faff;
+  --text:#0f172a;
+  --muted:#4a6490;
+  --border:rgba(37,99,196,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 6vw;
+  background:rgba(10,36,99,0.97);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  transition:padding .3s;
+}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-box{
+  width:42px;height:42px;
+  background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--blue-dark);
+}
+.nav-brand{font-family:'Playfair Display',serif;font-size:18px;color:var(--white);letter-spacing:.5px}
+.nav-brand span{color:#7eb8ff}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.5px;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{
+  background:var(--white);color:var(--blue-dark);
+  padding:10px 24px;font-size:12px;font-weight:700;
+  border:none;cursor:pointer;letter-spacing:1px;text-transform:uppercase;
+  transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.nav-cta:hover{background:#dbeafe;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;position:relative;
+  display:flex;align-items:center;
+  overflow:hidden;padding:120px 6vw 80px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1800&q=85');
+  background-size:cover;background-position:center 30%;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(110deg,rgba(10,36,99,0.95) 0%,rgba(10,36,99,0.82) 50%,rgba(10,36,99,0.45) 100%);
+}
+/* diagonal blue band */
+.hero-band{
+  position:absolute;bottom:-60px;left:-5%;width:110%;height:130px;
+  background:var(--white);transform:skewY(-2.5deg);transform-origin:left;
+  z-index:2;
+}
+.hero-content{position:relative;z-index:3;max-width:660px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  color:#7eb8ff;font-size:11px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;margin-bottom:22px;
+  opacity:0;animation:fadeUp .8s ease .1s forwards;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:#7eb8ff}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,5.5vw,5.2rem);font-weight:900;
+  color:var(--white);line-height:1.05;
+  opacity:0;animation:fadeUp .8s ease .25s forwards;
+}
+.hero h1 em{font-style:italic;color:#7eb8ff;font-family:'Cormorant Garamond',serif;font-size:1.1em}
+.hero-sub{
+  font-size:17px;color:rgba(255,255,255,0.6);font-weight:300;
+  line-height:1.7;margin:22px 0 36px;max-width:520px;
+  opacity:0;animation:fadeUp .8s ease .4s forwards;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s ease .55s forwards}
+.btn-white{
+  background:var(--white);color:var(--blue-dark);
+  padding:15px 34px;font-size:13px;font-weight:700;
+  border:none;cursor:pointer;letter-spacing:1px;text-transform:uppercase;
+  transition:all .2s;text-decoration:none;display:inline-block;font-family:'DM Sans',sans-serif;
+}
+.btn-white:hover{background:var(--blue-pale);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.btn-outline-w{
+  border:1.5px solid rgba(255,255,255,0.4);color:var(--white);
+  padding:15px 34px;font-size:13px;font-weight:500;cursor:pointer;
+  text-decoration:none;display:inline-block;transition:all .2s;background:transparent;
+  letter-spacing:.5px;font-family:'DM Sans',sans-serif;
+}
+.btn-outline-w:hover{border-color:var(--white);background:rgba(255,255,255,0.08)}
+.hero-stats{
+  position:absolute;bottom:0;right:0;z-index:3;
+  display:flex;opacity:0;animation:fadeUp .8s ease .7s forwards;
+}
+.hstat{
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);
+  backdrop-filter:blur(14px);
+  padding:26px 32px;text-align:center;border-bottom:none;transition:background .3s;
+}
+.hstat:hover{background:rgba(255,255,255,0.18)}
+.hstat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--white);display:block;line-height:1}
+.hstat-lbl{font-size:10px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:2px;margin-top:5px}
+
+/* ── TICKER ── */
+.ticker{background:var(--blue-dark);padding:0;overflow:hidden;height:46px;display:flex;align-items:center}
+.ticker-track{display:flex;gap:52px;white-space:nowrap;animation:tick 28s linear infinite}
+.ticker-track span{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:2px}
+.ticker-track .dot{color:rgba(255,255,255,0.25);font-size:14px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── ANNOUNCEMENT ── */
+.ann{
+  background:var(--blue-pale);
+  padding:18px 6vw;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+  border-bottom:2px solid var(--blue-light);
+}
+.ann-tag{background:var(--blue-dark);color:var(--white);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;flex-shrink:0}
+.ann-txt{color:var(--blue-dark);font-size:14px}
+.ann-lnk{color:var(--blue);font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--blue)}
+
+/* ── SECTION BASE ── */
+section{padding:100px 6vw}
+.lbl{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+.lbl::before{content:'';width:28px;height:2px;background:var(--blue)}
+h2.ttl{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;color:var(--blue-dark);line-height:1.15;margin-bottom:16px}
+h2.ttl em{font-style:italic;color:var(--blue)}
+h2.ttl-w{color:var(--white)}
+h2.ttl-w em{color:#7eb8ff}
+
+/* ── ABOUT ── */
+.about{background:var(--off-white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-imgwrap{position:relative}
+.about-img{width:100%;height:520px;object-fit:cover;display:block}
+.about-badge{
+  position:absolute;bottom:-24px;right:-24px;
+  background:var(--blue-dark);padding:28px 24px;text-align:center;z-index:2;
+  border-left:4px solid var(--blue-light);
+}
+.about-badge strong{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--white);display:block;line-height:1}
+.about-badge span{font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:2px;margin-top:4px;display:block}
+.about-corner{position:absolute;top:-14px;left:-14px;width:52px;height:52px;border:2px solid var(--blue-light);opacity:.5}
+.about-txt p{color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:18px}
+.about-txt p strong{color:var(--blue-dark);font-weight:600}
+.about-quote{border-left:4px solid var(--blue-light);padding:16px 22px;margin:26px 0;background:var(--blue-pale)}
+.about-quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--blue-dark);line-height:1.5;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.chip{background:var(--blue-dark);color:var(--white);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px}
+
+/* ── STATS ── */
+.stats-sec{background:var(--blue-dark);position:relative;overflow:hidden;padding:80px 6vw}
+.stats-sec::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1400&q=40');
+  background-size:cover;background-position:center;opacity:.04;
+}
+.stats-in{position:relative;z-index:1}
+.stats-top{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:center;margin-bottom:56px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.06)}
+.sc{
+  background:rgba(10,36,99,0.9);padding:0 0 36px;text-align:center;
+  border-top:3px solid transparent;transition:all .3s;cursor:default;overflow:hidden;
+}
+.sc:hover{border-color:#7eb8ff;background:rgba(26,75,160,0.5)}
+.sc img{width:100%;height:120px;object-fit:cover;opacity:.5;filter:grayscale(30%) brightness(.9);transition:opacity .3s,transform .4s}
+.sc:hover img{opacity:.7;transform:scale(1.04)}
+.sc-body{padding:22px 16px 0}
+.sc-num{font-family:'Playfair Display',serif;font-size:46px;font-weight:900;color:var(--white);display:block;line-height:1}
+.sc-lbl{color:rgba(255,255,255,0.38);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin-top:7px}
+
+/* ── COURSES ── */
+.courses{background:var(--white)}
+.courses-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:52px}
+.courses-head p{color:var(--muted);font-size:15px;line-height:1.7}
+.courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border)}
+.cc{background:var(--white);position:relative;overflow:hidden;transition:transform .3s;border-right:1px solid var(--border)}
+.cc:last-child{border-right:none}
+.cc:hover{transform:translateY(-5px);z-index:2;box-shadow:0 20px 56px rgba(37,99,196,0.13)}
+.cc img{width:100%;height:200px;object-fit:cover;display:block;filter:brightness(.9) saturate(.9);transition:filter .4s}
+.cc:hover img{filter:brightness(1) saturate(1)}
+.cc-body{padding:30px 26px}
+.cc-tag{display:inline-block;background:var(--blue-dark);color:var(--white);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;margin-bottom:15px}
+.cc h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--blue-dark);font-weight:700;margin-bottom:10px}
+.cc p{color:var(--muted);font-size:14px;line-height:1.7}
+.cc-foot{margin-top:20px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cc-foot span{font-size:11px;color:var(--muted)}
+.cc-foot strong{color:var(--blue-dark);font-size:13px}
+.cc-arr{width:34px;height:34px;background:var(--blue-dark);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:15px;transition:background .2s}
+.cc:hover .cc-arr{background:var(--blue)}
+
+/* ── WHY ── */
+.why{background:var(--blue-dark);position:relative;overflow:hidden;padding:0}
+.why-grid{display:grid;grid-template-columns:1fr 1fr}
+.why-imgcol{
+  position:relative;min-height:700px;
+  background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=85');
+  background-size:cover;background-position:center;
+}
+.why-imgcol::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 45%,var(--blue-dark) 100%)}
+.why-imgcol::before{content:'';position:absolute;inset:0;background:rgba(10,36,99,0.25)}
+.why-cnt{padding:80px 60px 80px 40px;position:relative;z-index:1}
+.why-cnt .lbl{color:rgba(126,184,255,0.7)}
+.why-cnt h2{color:var(--white);margin-bottom:36px}
+.witem{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.07);transition:padding-left .2s;cursor:default}
+.witem:last-child{border:none}
+.witem:hover{padding-left:6px}
+.wnum{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:rgba(126,184,255,0.15);min-width:50px;line-height:1;transition:color .2s}
+.witem:hover .wnum{color:#7eb8ff}
+.wcnt h4{font-family:'Playfair Display',serif;font-size:17px;color:var(--white);font-weight:700;margin-bottom:6px}
+.wcnt p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6}
+
+/* ── GALLERY ── */
+.gallery{background:var(--off-white);padding:80px 6vw}
+.gal-head{margin-bottom:40px}
+.gal-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:4px}
+.gimg{overflow:hidden;position:relative}
+.gimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,filter .4s;filter:brightness(.88) saturate(.85)}
+.gimg:hover img{transform:scale(1.06);filter:brightness(1) saturate(1)}
+.gimg-tall{grid-row:span 2}
+.gov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,36,99,0.8) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:18px}
+.gimg:hover .gov{opacity:1}
+.gov span{color:var(--white);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+
+/* ── TESTIMONIALS ── */
+.testi{background:var(--blue-xpale);padding:100px 6vw}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.tc{
+  background:var(--white);padding:34px 30px;position:relative;
+  border-top:3px solid var(--border);transition:all .3s;
+}
+.tc::before{content:'"';font-family:'Playfair Display',serif;font-size:80px;color:var(--blue-pale);position:absolute;top:10px;right:18px;line-height:1}
+.tc:hover{border-top-color:var(--blue);transform:translateY(-4px);box-shadow:0 16px 48px rgba(37,99,196,0.1)}
+.tc p{color:var(--muted);font-size:14px;line-height:1.8;font-style:italic;position:relative;z-index:1}
+.tc-auth{margin-top:22px;display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid var(--border)}
+.tc-av{width:42px;height:42px;border-radius:50%;background:var(--blue-dark);display:flex;align-items:center;justify-content:center;color:var(--white);font-family:'Playfair Display',serif;font-size:18px;font-weight:700;flex-shrink:0}
+.tc-name{font-weight:600;color:var(--blue-dark);font-size:13px}
+.tc-role{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* ── EXPANSION ── */
+.expansion{position:relative;overflow:hidden;background:var(--blue-mid)}
+.exp-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=60');background-size:cover;background-position:center;opacity:.06}
+.exp-bg2{position:absolute;top:-40%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%)}
+.exp-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.exp-in .lbl{color:rgba(126,184,255,0.7)}
+.exp-in h2{color:var(--white)}
+.exp-in h2 em{color:#7eb8ff}
+.exp-left p{color:rgba(255,255,255,0.6);font-size:15px;line-height:1.8;margin-bottom:16px}
+.exp-badge{display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);color:var(--white);padding:9px 22px;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:26px;animation:glow 2.5s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.2)}50%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
+.exp-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);padding:44px;backdrop-filter:blur(10px)}
+.exp-card-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--white);margin-bottom:26px}
+.exp-card-title span{color:#7eb8ff}
+.exp-list{list-style:none}
+.exp-list li{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,0.65);font-size:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.exp-list li::before{content:'▶';color:#7eb8ff;font-size:7px;flex-shrink:0}
+.exp-cta{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08)}
+.exp-cta p{color:rgba(255,255,255,0.3);font-size:12px;margin-bottom:14px}
+
+/* ── CONTACT ── */
+.contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px}
+.contact h2{margin-bottom:10px}
+.contact .sub{color:var(--muted);font-size:15px;margin-bottom:34px;line-height:1.6}
+.fg{margin-bottom:20px}
+.fg label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue-dark);margin-bottom:8px}
+.fg input,.fg select,.fg textarea{width:100%;padding:13px 16px;background:var(--off-white);border:1px solid var(--border);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s,background .2s;appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);background:var(--white)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg textarea{resize:vertical;min-height:88px}
+.c-aside h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--blue-dark);margin-bottom:8px}
+.c-aside .sub2{color:var(--muted);font-size:14px;margin-bottom:28px;line-height:1.6}
+.iit{display:flex;gap:16px;margin-bottom:22px;align-items:flex-start}
+.iico{width:44px;height:44px;background:var(--blue-dark);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.itxt p:first-child{font-weight:700;color:var(--blue-dark);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
+.itxt p:last-child{color:var(--muted);font-size:14px}
+.soc{margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+.soc p{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:var(--muted);margin-bottom:14px}
+.slinks{display:flex;gap:10px}
+.slnk{width:40px;height:40px;background:var(--blue-dark);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:15px;text-decoration:none;transition:background .2s}
+.slnk:hover{background:var(--blue)}
+.c-map{margin-top:26px;width:100%;height:160px;overflow:hidden;position:relative;border:1px solid var(--border)}
+.c-map img{width:100%;height:100%;object-fit:cover;opacity:.6;filter:saturate(.7) hue-rotate(180deg)}
+.c-map-pin{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.c-map-pin div{background:var(--blue-dark);color:var(--white);padding:10px 18px;font-size:12px;font-weight:700;letter-spacing:1px;border:1px solid rgba(255,255,255,.2)}
+
+/* ── FOOTER ── */
+footer{background:var(--blue-dark);padding:60px 6vw 28px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px}
+.fb-name{font-family:'Playfair Display',serif;font-size:26px;color:var(--white);font-weight:900;margin-bottom:6px}
+.fb-name span{color:#7eb8ff}
+.fb-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(255,255,255,0.3);margin-bottom:16px}
+.fb-desc{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.7}
+.fc h4{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.35);margin-bottom:16px}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fc ul li a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:13px;transition:color .2s}
+.fc ul li a:hover{color:#7eb8ff}
+.fb{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fb p{color:rgba(255,255,255,0.2);font-size:12px}
+.fb a{color:#7eb8ff;text-decoration:none}
+
+/* ── WAVE DIVIDERS ── */
+.wave-down{display:block;margin-bottom:-2px;line-height:0}
+.wave-up{display:block;margin-top:-2px;line-height:0}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .about-grid,.exp-in,.contact-grid,.why-grid{grid-template-columns:1fr;gap:48px}
+  .courses-grid{grid-template-columns:1fr 1fr;border:none;gap:2px}
+  .cc{border-right:none}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .tgrid{grid-template-columns:1fr 1fr}
+  .ft{grid-template-columns:1fr 1fr;gap:32px}
+  .stats-top{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}
+  .gimg-tall{grid-row:span 1}
+  .courses-head{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .nav-links{display:none}
+  .hero-stats{position:static;margin-top:40px;width:100%}
+  .courses-grid,.tgrid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px}
+  .ft{grid-template-columns:1fr}
+  .fr{grid-template-columns:1fr}
+  section{padding:64px 5vw}
+  .hero{padding-bottom:60px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-box">G</div>
+    <div class="nav-brand"><span>GRAVITAS</span> EDUCATION</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#expansion">New Centre</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="goto('#contact')">Enquire Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Dehradun's Premier Learning Centre</div>
+    <h1>Unleash<br><em>Your Potential.</em></h1>
+    <p class="hero-sub">Classes 1–12 &nbsp;·&nbsp; ICSE/ISC &nbsp;·&nbsp; CBSE &nbsp;·&nbsp; CUET<br>Expert guidance. Personal attention. Proven results.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-white">Enquire for Admissions</a>
+      <a href="#about" class="btn-outline-w">Discover Our Story</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><span class="hstat-num">120+</span><div class="hstat-lbl">Students</div></div>
+    <div class="hstat"><span class="hstat-num">100%</span><div class="hstat-lbl">Subject Scores</div></div>
+    <div class="hstat"><span class="hstat-num">5+</span><div class="hstat-lbl">Years</div></div>
+    <div class="hstat"><span class="hstat-num">95–100</span><div class="hstat-lbl">% Achieved</div></div>
+  </div>
+  <div class="hero-band"></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>ICSE / ISC</span><span class="dot">◆</span><span>CBSE</span><span class="dot">◆</span><span>CUET Preparation</span><span class="dot">◆</span><span>Classes 1–12</span><span class="dot">◆</span><span>Science · Commerce · Humanities</span><span class="dot">◆</span><span>2nd Centre Coming Soon</span><span class="dot">◆</span><span>Admissions Open</span><span class="dot">◆</span><span>Dehradun, Uttarakhand</span><span class="dot">◆</span>
+    <span>ICSE / ISC</span><span class="dot">◆</span><span>CBSE</span><span class="dot">◆</span><span>CUET Preparation</span><span class="dot">◆</span><span>Classes 1–12</span><span class="dot">◆</span><span>Science · Commerce · Humanities</span><span class="dot">◆</span><span>2nd Centre Coming Soon</span><span class="dot">◆</span><span>Admissions Open</span><span class="dot">◆</span><span>Dehradun, Uttarakhand</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- ANNOUNCEMENT -->
+<div class="ann">
+  <div class="ann-tag">🎉 Big News</div>
+  <p class="ann-txt">Gravitas Education is expanding — our <strong>2nd Centre</strong> is coming soon to serve more students across Dehradun.</p>
+  <a href="#expansion" class="ann-lnk">Learn More →</a>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-imgwrap rv">
+      <img class="about-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=85" alt="Students learning" loading="lazy">
+      <div class="about-corner"></div>
+      <div class="about-badge"><strong>5+</strong><span>Years of Excellence</span></div>
+    </div>
+    <div class="rv">
+      <div class="lbl">Our Story</div>
+      <h2 class="ttl">Where Every Student <em>Matters</em></h2>
+      <div class="about-txt">
+        <p>What started as a small initiative driven by a passion for quality education has grown into Dehradun's most trusted learning space. Over <strong>5+ years</strong>, we have mentored over a thousand students — building a reputation for strong results and genuine personal care.</p>
+        <p>Our experienced faculty guide students from <strong>Classes 1 to 12</strong> across ICSE/ISC, CBSE, and CUET examinations — covering Science, Commerce, and Humanities streams with equal dedication.</p>
+        <div class="about-quote">
+          <p>"We believe education should shape not just successful students — but better human beings with values, empathy, and purpose."</p>
+        </div>
+      </div>
+      <div class="chips">
+        <div class="chip">ICSE / ISC</div><div class="chip">CBSE</div><div class="chip">CUET</div>
+        <div class="chip">Science</div><div class="chip">Commerce</div><div class="chip">Humanities</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-sec">
+  <div class="stats-in">
+    <div class="stats-top rv">
+      <div>
+        <div class="lbl" style="color:rgba(126,184,255,0.6)">First Centre — By the Numbers</div>
+        <h2 class="ttl ttl-w">A Record of <em>Proven Excellence</em></h2>
+      </div>
+      <p style="color:rgba(255,255,255,0.38);font-size:15px;line-height:1.7">Five years. Hundreds of students. Countless 95–100% scores. Our track record speaks for itself — and drives us to reach even more learners.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="sc rv">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=70" alt="Students" loading="lazy">
+        <div class="sc-body"><span class="sc-num">120+</span><div class="sc-lbl">Happy Students</div></div>
+      </div>
+      <div class="sc rv">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=70" alt="Scores" loading="lazy">
+        <div class="sc-body"><span class="sc-num">100%</span><div class="sc-lbl">Perfect Subject Scores</div></div>
+      </div>
+      <div class="sc rv">
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=400&q=70" alt="Results" loading="lazy">
+        <div class="sc-body"><span class="sc-num">95–100</span><div class="sc-lbl">% Scores Achieved</div></div>
+      </div>
+      <div class="sc rv">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=70" alt="Excellence" loading="lazy">
+        <div class="sc-body"><span class="sc-num">5+</span><div class="sc-lbl">Years of Excellence</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses" id="courses">
+  <div class="courses-head">
+    <div>
+      <div class="lbl">What We Offer</div>
+      <h2 class="ttl">Courses & <em>Programmes</em></h2>
+    </div>
+    <p>Comprehensive academic support across all major curricula and streams, tailored to each student's unique learning journey — from foundational classes to competitive exam prep.</p>
+  </div>
+  <div class="courses-grid">
+    <div class="cc rv">
+      <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="ICSE ISC" loading="lazy">
+      <div class="cc-body">
+        <div class="cc-tag">ICSE / ISC</div>
+        <h3>ICSE & ISC Excellence</h3>
+        <p>Rigorous CISCE-aligned preparation with deep conceptual focus, writing practice, and structured revision for top board results.</p>
+        <div class="cc-foot"><div><span>Classes</span><br><strong>1–12 · All Streams</strong></div><div class="cc-arr">→</div></div>
+      </div>
+    </div>
+    <div class="cc rv">
+      <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&q=80" alt="CBSE" loading="lazy">
+      <div class="cc-body">
+        <div class="cc-tag">CBSE</div>
+        <h3>CBSE Board Mastery</h3>
+        <p>NCERT-aligned coaching with emphasis on board exam performance and strong competitive foundations across all three streams.</p>
+        <div class="cc-foot"><div><span>Classes</span><br><strong>1–12 · All Streams</strong></div><div class="cc-arr">→</div></div>
+      </div>
+    </div>
+    <div class="cc rv">
+      <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&q=80" alt="CUET" loading="lazy">
+      <div class="cc-body">
+        <div class="cc-tag">CUET</div>
+        <h3>CUET Preparation</h3>
+        <p>Targeted coaching for the Common University Entrance Test — domain subjects, general aptitude, and language proficiency.</p>
+        <div class="cc-foot"><div><span>Classes</span><br><strong>11–12 · Post-Board</strong></div><div class="cc-arr">→</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="why-grid">
+    <div class="why-imgcol"></div>
+    <div class="why-cnt">
+      <div class="lbl">Why Choose Us</div>
+      <h2 class="ttl ttl-w">Education That <em>Transforms</em></h2>
+      <div>
+        <div class="witem"><div class="wnum">01</div><div class="wcnt"><h4>Expert & Dedicated Faculty</h4><p>Highly qualified teachers committed to every student's success — in every subject, at every level.</p></div></div>
+        <div class="witem"><div class="wnum">02</div><div class="wcnt"><h4>Personal Attention & Small Batches</h4><p>Intentionally small groups ensure every student receives focused, individual guidance.</p></div></div>
+        <div class="witem"><div class="wnum">03</div><div class="wcnt"><h4>Holistic Development</h4><p>Beyond academics — we nurture confidence, critical thinking, and values that shape well-rounded individuals.</p></div></div>
+        <div class="witem"><div class="wnum">04</div><div class="wcnt"><h4>Proven Track Record</h4><p>5+ years of consistent results — many students achieving 95–100% scores under our guidance.</p></div></div>
+        <div class="witem"><div class="wnum">05</div><div class="wcnt"><h4>Trusted by 120+ Families</h4><p>The unwavering trust of parents and students has been our greatest achievement and driving force.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gal-head rv">
+    <div class="lbl">Life at Gravitas</div>
+    <h2 class="ttl">Our Learning <em>Environment</em></h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gimg gimg-tall rv"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=85" alt="Expert Faculty" loading="lazy"><div class="gov"><span>Expert Faculty</span></div></div>
+    <div class="gimg rv"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="Students" loading="lazy"><div class="gov"><span>Dedicated Students</span></div></div>
+    <div class="gimg rv"><img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=500&q=80" alt="Attention" loading="lazy"><div class="gov"><span>Individual Attention</span></div></div>
+    <div class="gimg rv"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&q=80" alt="Learning" loading="lazy"><div class="gov"><span>Focused Learning</span></div></div>
+    <div class="gimg rv"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&q=80" alt="Results" loading="lazy"><div class="gov"><span>Proven Results</span></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div style="text-align:center" class="rv">
+    <div class="lbl" style="justify-content:center">What Parents & Students Say</div>
+    <h2 class="ttl" style="max-width:460px;margin:0 auto">Voices of <em>Trust</em></h2>
+  </div>
+  <div class="tgrid">
+    <div class="tc rv">
+      <p>My daughter went from struggling with Maths to scoring 98 in her ISC boards. The patience and dedication of the teachers here is truly unmatched.</p>
+      <div class="tc-auth"><div class="tc-av">P</div><div><div class="tc-name">Priya Sharma</div><div class="tc-role">Parent · ISC Class 12</div></div></div>
+    </div>
+    <div class="tc rv">
+      <p>Gravitas helped me not just crack CUET but actually understand my subject deeply. The faculty genuinely cares about every student's growth and future.</p>
+      <div class="tc-auth"><div class="tc-av">A</div><div><div class="tc-name">Arjun Mehta</div><div class="tc-role">Student · CUET 2024</div></div></div>
+    </div>
+    <div class="tc rv">
+      <p>The personal attention our son receives is something you rarely find. He has grown not just academically but in confidence and character.</p>
+      <div class="tc-auth"><div class="tc-av">R</div><div><div class="tc-name">Rahul Verma</div><div class="tc-role">Parent · CBSE Class 10</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPANSION -->
+<section class="expansion" id="expansion">
+  <div class="exp-bg"></div>
+  <div class="exp-bg2"></div>
+  <div class="exp-in">
+    <div class="exp-left rv">
+      <div class="lbl">Big News</div>
+      <div class="exp-badge">2nd Centre — Coming Soon</div>
+      <h2 class="ttl ttl-w">We Are <em>Growing!</em></h2>
+      <p>Driven by stupendous success and inspired by the unwavering trust of our students and families, Gravitas Education is proud to announce our second centre in Dehradun.</p>
+      <p>The new location brings quality education even closer to more students — with the same commitment, expertise, and heart.</p>
+      <p style="color:#7eb8ff;font-weight:600;font-size:16px;margin-bottom:28px">New Beginning. Same Commitment.</p>
+      <a href="#contact" class="btn-white">Register Your Interest</a>
+    </div>
+    <div class="exp-card rv">
+      <div class="exp-card-title">What to <span>Expect</span></div>
+      <ul class="exp-list">
+        <li>Classes 1 to 12 — all boards covered</li>
+        <li>ICSE/ISC, CBSE & CUET preparation</li>
+        <li>Science, Commerce & Humanities streams</li>
+        <li>Expert faculty with proven results</li>
+        <li>Small batches with personal attention</li>
+        <li>Holistic development at the core</li>
+        <li>Quality education closer to your home</li>
+        <li>Admissions opening very soon</li>
+      </ul>
+      <div class="exp-cta">
+        <p>Be the first to know when admissions open.</p>
+        <a href="#contact" class="btn-white" style="font-size:12px;padding:12px 28px">Get Notified →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="rv">
+      <div class="lbl">Get In Touch</div>
+      <h2 class="ttl">Start Your <em>Journey</em></h2>
+      <p class="sub">Fill in the form and our team will reach out within 24 hours to discuss how we can help your child achieve their full potential.</p>
+      <div class="fr">
+        <div class="fg"><label>Parent's Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="fg"><label>Student's Name</label><input type="text" placeholder="Student's name"></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>Class / Grade</label>
+          <select><option value="">Select Class</option><option>Class 1–5</option><option>Class 6–8</option><option>Class 9–10</option><option>Class 11–12</option><option>CUET Preparation</option></select>
+        </div>
+        <div class="fg"><label>Curriculum</label>
+          <select><option value="">Select Board</option><option>ICSE / ISC</option><option>CBSE</option><option>CUET</option></select>
+        </div>
+      </div>
+      <div class="fg"><label>Message (Optional)</label><textarea placeholder="Tell us about your child's needs..."></textarea></div>
+      <button id="submitBtn" style="width:100%;padding:16px;font-size:14px;cursor:pointer;border:none;background:var(--blue-dark);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background .2s">Submit Enquiry →</button>
+    </div>
+    <div class="c-aside rv">
+      <h3>Contact Information</h3>
+      <p class="sub2">Our team is available Monday to Saturday. Reach out — we'd love to hear from you.</p>
+      <div class="iit"><div class="iico">📞</div><div class="itxt"><p>Phone</p><p>8218464463 / 0135-3135215</p></div></div>
+      <div class="iit"><div class="iico">🌐</div><div class="itxt"><p>Website</p><p>www.gravitasedu.com</p></div></div>
+      <div class="iit"><div class="iico">📍</div><div class="itxt"><p>Location</p><p>Dehradun, Uttarakhand<br><span style="color:var(--blue);font-size:12px;font-weight:600">2nd Centre Opening Soon</span></p></div></div>
+      <div class="iit"><div class="iico">🕐</div><div class="itxt"><p>Hours</p><p>Mon – Sat: 8:00 AM – 7:00 PM</p></div></div>
+      <div class="c-map">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&q=70" alt="Dehradun" loading="lazy">
+        <div class="c-map-pin"><div>📍 Dehradun, Uttarakhand</div></div>
+      </div>
+      <div class="soc">
+        <p>Follow Us</p>
+        <div class="slinks">
+          <a href="#" class="slnk">📷</a>
+          <a href="#" class="slnk">👍</a>
+          <a href="#" class="slnk">▶</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="fb-name"><span>GRAVITAS</span> EDUCATION</div>
+      <div class="fb-tag">Unleash your potential...</div>
+      <p class="fb-desc">Dehradun's trusted learning centre for Classes 1–12.<br>ICSE/ISC, CBSE & CUET. Five years of proven excellence.</p>
+    </div>
+    <div class="fc"><h4>Navigate</h4><ul><li><a href="#about">About Us</a></li><li><a href="#courses">Courses</a></li><li><a href="#why">Why Gravitas</a></li><li><a href="#expansion">New Centre</a></li></ul></div>
+    <div class="fc"><h4>Courses</h4><ul><li><a href="#courses">ICSE / ISC</a></li><li><a href="#courses">CBSE</a></li><li><a href="#courses">CUET</a></li><li><a href="#courses">Classes 1–12</a></li></ul></div>
+    <div class="fc"><h4>Contact</h4><ul><li><a href="tel:8218464463">8218464463</a></li><li><a href="tel:01353135215">0135-3135215</a></li><li><a href="#">gravitasedu.com</a></li><li><a href="#contact">Enquire Now</a></li></ul></div>
+  </div>
+  <div class="fb">
+    <p>© 2026 Gravitas Education, Dehradun. All rights reserved.</p>
+    <p><a href="#">www.gravitasedu.com</a></p>
+  </div>
+</footer>
+
+<script>
+function goto(sel){const t=document.querySelector(sel);if(t)window.scrollTo({top:t.offsetTop-72,behavior:'smooth'})}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-72,behavior:'smooth'})}
+  });
+});
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}});
+},{threshold:0.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').style.padding=window.scrollY>60?'11px 6vw':'16px 6vw';
+});
+const sb=document.getElementById('submitBtn');
+sb.addEventListener('mouseenter',()=>{if(!sb.disabled)sb.style.background='#2563c4'});
+sb.addEventListener('mouseleave',()=>{if(!sb.disabled)sb.style.background='var(--blue-dark)'});
+sb.addEventListener('click',function(){
+  this.textContent='✓ Submitted — We\'ll reach out within 24 hrs';
+  this.style.background='#166534';this.disabled=true;
+});
+</script>
+</body>
+</html>

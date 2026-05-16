@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravitas Education – Unleash Your Potential</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Merriweather:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d2353;
+  --navy2:#14306b;
+  --navy3:#1a3f8f;
+  --blue:#2563eb;
+  --blue2:#3b82f6;
+  --sky:#60a5fa;
+  --yellow:#f59e0b;
+  --yellow2:#fbbf24;
+  --yellow-pale:#fef3c7;
+  --white:#ffffff;
+  --off:#f0f4ff;
+  --off2:#e8eeff;
+  --text:#0f1f45;
+  --muted:#4b5e82;
+  --border:#dde5f5;
+  --success:#16a34a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+/* ── TOP BAR ── */
+.topbar{
+  background:var(--navy);
+  padding:9px 6vw;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12.5px;color:rgba(255,255,255,0.75);
+  flex-wrap:wrap;gap:8px;
+}
+.topbar-left{display:flex;align-items:center;gap:6px}
+.topbar-left span{color:var(--yellow);margin-right:4px}
+.topbar-right{display:flex;align-items:center;gap:20px}
+.topbar-right a{color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .2s}
+.topbar-right a:hover{color:var(--yellow2)}
+.topbar-right .wa{background:var(--success);color:white;padding:5px 12px;font-weight:700;font-size:11px;letter-spacing:.5px}
+
+/* ── NAV ── */
+nav{
+  background:var(--white);
+  padding:0 6vw;
+  display:flex;align-items:center;justify-content:space-between;
+  height:70px;
+  box-shadow:0 2px 16px rgba(13,35,83,0.1);
+  position:sticky;top:0;z-index:200;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{
+  width:44px;height:44px;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Merriweather',serif;font-size:20px;font-weight:900;color:var(--white);
+  border-radius:4px;position:relative;overflow:hidden;
+}
+.nav-logo-icon::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--yellow)}
+.nav-logo-text{line-height:1.2}
+.nav-logo-name{font-weight:900;font-size:16px;color:var(--navy);letter-spacing:.5px}
+.nav-logo-sub{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-weight:600}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{
+  color:var(--text);text-decoration:none;font-size:13.5px;font-weight:600;
+  padding:0 16px;height:70px;display:flex;align-items:center;
+  border-bottom:3px solid transparent;transition:all .2s;position:relative;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);border-bottom-color:var(--blue)}
+.nav-cta-btn{
+  background:var(--yellow);color:var(--navy);
+  padding:11px 24px;font-size:13px;font-weight:800;
+  border:none;cursor:pointer;letter-spacing:.5px;
+  transition:all .2s;font-family:'Nunito',sans-serif;border-radius:4px;
+  text-decoration:none;display:inline-block;
+}
+.nav-cta-btn:hover{background:var(--yellow2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(245,158,11,.35)}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:calc(100vh - 118px);
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+
+/* VIDEO BG */
+.hero-vid-wrap{
+  position:absolute;inset:0;z-index:0;
+  background:var(--navy);
+}
+.hero-vid-wrap video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  opacity:0;transition:opacity 1.4s ease;
+}
+.hero-vid-wrap video.active{opacity:1}
+.hero-vid-wrap::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1800&q=85');
+  background-size:cover;background-position:center;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(13,35,83,0.93) 0%,rgba(13,35,83,0.82) 45%,rgba(13,35,83,0.5) 70%,rgba(13,35,83,0.2) 100%);
+}
+
+/* Video controls */
+.vid-dots{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:5;display:flex;gap:8px;align-items:center;
+}
+.vdot{
+  width:24px;height:3px;background:rgba(255,255,255,0.3);
+  border:none;cursor:pointer;transition:all .3s;padding:0;
+}
+.vdot.on{background:var(--yellow);width:36px}
+.vdot:hover{background:rgba(255,255,255,0.6)}
+.vid-mute{
+  position:absolute;top:16px;right:16px;z-index:5;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.2);
+  color:white;font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.vid-mute:hover{background:rgba(0,0,0,.55)}
+
+/* Hero content grid */
+.hero-inner{
+  position:relative;z-index:3;
+  width:100%;padding:60px 6vw;
+  display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:center;
+}
+.hero-tag{
+  display:inline-block;
+  color:var(--yellow);font-size:12px;font-weight:800;
+  letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px;
+}
+.hero h1{
+  font-family:'Merriweather',serif;
+  font-size:clamp(2.2rem,4.5vw,3.8rem);
+  font-weight:900;color:var(--white);line-height:1.12;margin-bottom:12px;
+}
+.hero h1 span{color:var(--yellow)}
+.hero-boards{
+  font-size:18px;font-weight:800;color:rgba(255,255,255,0.85);
+  letter-spacing:.5px;margin-bottom:18px;
+}
+.hero-desc{
+  font-size:15px;color:rgba(255,255,255,0.6);
+  line-height:1.7;margin-bottom:28px;max-width:500px;font-weight:400;
+}
+.hero-features{
+  display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;
+}
+.hfeat{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.8);font-weight:600;
+  backdrop-filter:blur(6px);
+}
+.hfeat-ico{font-size:18px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-yellow{
+  background:var(--yellow);color:var(--navy);
+  padding:14px 30px;font-size:13.5px;font-weight:800;
+  border:none;cursor:pointer;border-radius:4px;
+  transition:all .2s;text-decoration:none;display:inline-block;
+  font-family:'Nunito',sans-serif;letter-spacing:.3px;
+}
+.btn-yellow:hover{background:var(--yellow2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,158,11,.4)}
+.btn-outline-h{
+  border:2px solid rgba(255,255,255,0.4);color:var(--white);
+  background:transparent;padding:14px 30px;font-size:13.5px;font-weight:700;
+  cursor:pointer;border-radius:4px;text-decoration:none;display:inline-flex;
+  align-items:center;gap:8px;transition:all .2s;font-family:'Nunito',sans-serif;
+}
+.btn-outline-h:hover{background:rgba(255,255,255,0.1);border-color:var(--white)}
+
+/* Callback Form card */
+.callback-card{
+  background:var(--white);
+  padding:32px 28px;
+  box-shadow:0 20px 60px rgba(13,35,83,0.25);
+  position:relative;
+  border-top:4px solid var(--blue);
+}
+.callback-card h3{
+  font-family:'Merriweather',serif;
+  font-size:20px;font-weight:900;color:var(--navy);margin-bottom:6px;
+}
+.callback-card .sub{font-size:13px;color:var(--muted);margin-bottom:22px}
+.cf-input{
+  width:100%;padding:11px 14px;
+  border:1.5px solid var(--border);
+  font-family:'Nunito',sans-serif;font-size:14px;color:var(--text);
+  outline:none;margin-bottom:12px;background:var(--off);
+  border-radius:2px;transition:border-color .2s;
+}
+.cf-input:focus{border-color:var(--blue);background:var(--white)}
+.cf-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%234b5e82'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.cf-btn{
+  width:100%;padding:13px;
+  background:var(--blue);color:var(--white);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;
+  border:none;cursor:pointer;border-radius:3px;
+  transition:background .2s,transform .15s;letter-spacing:.3px;
+}
+.cf-btn:hover{background:var(--navy3);transform:translateY(-1px)}
+.cf-note{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  margin-top:10px;font-size:11.5px;color:var(--muted);
+}
+
+/* ── STATS BAR ── */
+.statsbar{
+  background:var(--navy);padding:28px 6vw;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:3px solid var(--yellow);
+}
+.sbar-item{
+  display:flex;align-items:center;gap:16px;
+  padding:0 24px;border-right:1px solid rgba(255,255,255,0.1);
+}
+.sbar-item:first-child{padding-left:0}
+.sbar-item:last-child{border-right:none}
+.sbar-icon{font-size:32px;opacity:.8}
+.sbar-num{
+  font-family:'Merriweather',serif;
+  font-size:28px;font-weight:900;color:var(--yellow);line-height:1;
+}
+.sbar-lbl{font-size:12px;color:rgba(255,255,255,0.55);margin-top:3px;font-weight:500}
+
+/* ── SECTIONS ── */
+section{padding:80px 6vw}
+.sec-label{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--blue);font-size:11px;font-weight:800;
+  letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;
+}
+.sec-label::before,.sec-label::after{content:'';width:24px;height:2px;background:var(--blue)}
+h2.sec-title{
+  font-family:'Merriweather',serif;
+  font-size:clamp(1.7rem,3.2vw,2.4rem);
+  font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:10px;
+}
+h2.sec-title span{color:var(--blue)}
+.sec-sub{color:var(--muted);font-size:15px;line-height:1.7;max-width:600px;margin:0 auto}
+
+/* ── COURSES ── */
+.courses{background:var(--off)}
+.courses-head{text-align:center;margin-bottom:48px}
+.courses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ccard{
+  background:var(--white);padding:32px 24px;
+  border:2px solid var(--border);border-radius:6px;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--border);transition:background .3s}
+.ccard:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(37,99,235,.12);border-color:transparent}
+.ccard:hover::before{background:var(--blue)}
+.ccard:nth-child(2):hover::before{background:#7c3aed}
+.ccard:nth-child(3):hover::before{background:#0891b2}
+.ccard:nth-child(4):hover::before{background:var(--yellow)}
+.cc-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.cc-icon-1{background:#dbeafe}
+.cc-icon-2{background:#ede9fe}
+.cc-icon-3{background:#cffafe}
+.cc-icon-4{background:var(--yellow-pale)}
+.cc-title{font-family:'Merriweather',serif;font-size:17px;font-weight:900;color:var(--blue);margin-bottom:4px}
+.ccard:nth-child(2) .cc-title{color:#7c3aed}
+.ccard:nth-child(3) .cc-title{color:#0891b2}
+.ccard:nth-child(4) .cc-title{color:#b45309}
+.cc-sub{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.cc-list{list-style:none;margin-bottom:20px}
+.cc-list li{font-size:13.5px;color:var(--text);padding:5px 0;display:flex;align-items:center;gap:8px;border-bottom:1px dashed var(--border)}
+.cc-list li:last-child{border:none}
+.cc-list li::before{content:'•';color:var(--blue);font-size:16px;flex-shrink:0}
+.ccard:nth-child(2) .cc-list li::before{color:#7c3aed}
+.ccard:nth-child(3) .cc-list li::before{color:#0891b2}
+.ccard:nth-child(4) .cc-list li::before{color:#b45309}
+.cc-btn{
+  width:100%;padding:10px;text-align:center;
+  border:2px solid var(--blue);color:var(--blue);
+  background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;
+  cursor:pointer;border-radius:3px;transition:all .2s;
+}
+.cc-btn:hover{background:var(--blue);color:var(--white)}
+.ccard:nth-child(2) .cc-btn{border-color:#7c3aed;color:#7c3aed}
+.ccard:nth-child(2) .cc-btn:hover{background:#7c3aed;color:white}
+.ccard:nth-child(3) .cc-btn{border-color:#0891b2;color:#0891b2}
+.ccard:nth-child(3) .cc-btn:hover{background:#0891b2;color:white}
+.ccard:nth-child(4) .cc-btn{border-color:#b45309;color:#b45309}
+.ccard:nth-child(4) .cc-btn:hover{background:#b45309;color:white}
+
+/* ── WHY + PRICING split ── */
+.why-pricing{background:var(--white);padding:80px 6vw}
+.wp-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.why-list{margin-top:24px;display:flex;flex-direction:column;gap:0}
+.witem{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 0;border-bottom:1px solid var(--border);
+}
+.witem:last-child{border:none}
+.wcheck{
+  width:22px;height:22px;background:var(--blue);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-size:11px;flex-shrink:0;margin-top:2px;
+}
+.witem p{font-size:14.5px;color:var(--text);line-height:1.6}
+.witem p strong{color:var(--navy);font-weight:800}
+.pricing-head{margin-bottom:8px}
+.pricing-note{font-size:13px;color:var(--muted);margin-bottom:24px}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.pcard{
+  border:2px solid var(--border);padding:20px 16px;text-align:center;
+  border-radius:6px;transition:all .3s;position:relative;
+}
+.pcard:hover{border-color:var(--blue);box-shadow:0 8px 24px rgba(37,99,235,.1)}
+.pcard.featured{border-color:var(--blue);background:var(--off)}
+.pcard.featured::after{content:'Popular';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--blue);color:white;font-size:10px;font-weight:800;padding:2px 10px;letter-spacing:1px;border-radius:20px}
+.pc-class{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
+.pc-price{font-family:'Merriweather',serif;font-size:30px;font-weight:900;color:var(--navy);line-height:1}
+.pc-price small{font-size:14px;font-family:'Nunito',sans-serif;color:var(--muted);font-weight:500}
+.pc-enroll{
+  width:100%;margin-top:14px;padding:9px;
+  background:var(--navy);color:white;
+  font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:800;
+  border:none;cursor:pointer;border-radius:3px;transition:background .2s;
+}
+.pcard.featured .pc-enroll{background:var(--blue)}
+.pc-enroll:hover{background:var(--blue)}
+.pricing-footnote{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+
+/* ── RESULTS ── */
+.results-sec{background:var(--off);padding:80px 6vw}
+.results-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;align-items:start}
+.results-nums{text-align:center}
+.results-nums h2{margin-bottom:8px}
+.rn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.rn-card{
+  background:var(--white);padding:24px 16px;text-align:center;
+  border-radius:6px;border-bottom:3px solid var(--blue);
+  box-shadow:0 4px 16px rgba(37,99,235,.07);
+}
+.rn-num{font-family:'Merriweather',serif;font-size:32px;font-weight:900;color:var(--blue);line-height:1}
+.rn-lbl{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.4;font-weight:500}
+.testi-col h3{font-family:'Merriweather',serif;font-size:20px;color:var(--navy);margin-bottom:20px}
+.tcard{
+  background:var(--white);padding:22px;border-radius:6px;
+  box-shadow:0 4px 20px rgba(13,35,83,.07);margin-bottom:14px;
+  border-left:3px solid var(--blue);
+}
+.tcard:last-child{margin-bottom:0;border-left-color:var(--yellow)}
+.tcard p{font-size:13.5px;color:var(--muted);line-height:1.7;font-style:italic}
+.tcard-auth{margin-top:12px;font-size:12.5px;font-weight:800;color:var(--navy)}
+.tcard-auth span{color:var(--muted);font-weight:500}
+.stars{color:var(--yellow);font-size:12px;margin-top:4px;letter-spacing:1px}
+
+/* ── CTA BANNER ── */
+.cta-banner{
+  background:linear-gradient(100deg,var(--navy) 0%,var(--navy3) 100%);
+  padding:56px 6vw;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+  flex-wrap:wrap;position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;right:-80px;top:-80px;
+  width:320px;height:320px;border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+.cta-banner::after{
+  content:'';position:absolute;right:100px;bottom:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:rgba(245,158,11,0.08);
+}
+.cta-icon-wrap{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;
+}
+.cta-text h3{font-family:'Merriweather',serif;font-size:24px;color:var(--white);font-weight:900;margin-bottom:6px}
+.cta-text p{font-size:14px;color:rgba(255,255,255,0.6)}
+.cta-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.cta-badge{
+  background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);
+  color:var(--yellow2);font-size:12px;font-weight:700;padding:8px 16px;letter-spacing:.5px;
+}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:60px 6vw 24px}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;margin-bottom:40px}
+.ft-brand-name{font-family:'Merriweather',serif;font-size:20px;font-weight:900;color:var(--white);margin-bottom:4px}
+.ft-brand-sub{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.35);margin-bottom:16px}
+.ft-desc{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.7;margin-bottom:20px}
+.ft-socials{display:flex;gap:8px}
+.ft-soc{
+  width:34px;height:34px;background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;transition:all .2s;
+}
+.ft-soc:hover{background:var(--blue);color:white;border-color:var(--blue)}
+.ft-col h4{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.45);margin-bottom:16px;font-weight:800}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-col ul li a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:13px;transition:color .2s}
+.ft-col ul li a:hover{color:var(--yellow)}
+.ft-contact p{display:flex;align-items:flex-start;gap:8px;color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:10px;line-height:1.5}
+.ft-contact p span{flex-shrink:0;margin-top:1px}
+.ft-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ft-bottom p{font-size:12px;color:rgba(255,255,255,0.22)}
+.ft-bottom a{color:rgba(255,255,255,0.38);font-size:12px;text-decoration:none;transition:color .2s}
+.ft-bottom a:hover{color:var(--yellow)}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:none}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .callback-card{max-width:480px}
+  .courses-grid{grid-template-columns:repeat(2,1fr)}
+  .wp-grid{grid-template-columns:1fr;gap:48px}
+  .results-grid{grid-template-columns:1fr;gap:40px}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:700px){
+  .nav-links,.topbar{display:none}
+  .statsbar{grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.07)}
+  .sbar-item{border:none;background:var(--navy);justify-content:center}
+  .courses-grid,.pricing-grid{grid-template-columns:1fr 1fr}
+  .rn-grid{grid-template-columns:repeat(2,1fr)}
+  .ft-grid{grid-template-columns:1fr}
+  .cta-banner{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .courses-grid,.pricing-grid{grid-template-columns:1fr}
+  .hero-features{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>⭐</span> Trusted by 1,000+ Students &amp; Parents in Dehradun
+  </div>
+  <div class="topbar-right">
+    <a href="#">🕐 Mon–Sat: 8:00 AM – 7:00 PM</a>
+    <a href="tel:8218464463">📞 8218464463</a>
+    <a href="https://wa.me/918218464463" class="wa">💬 WhatsApp</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">G</div>
+    <div class="nav-logo-text">
+      <div class="nav-logo-name">GRAVITAS EDUCATION</div>
+      <div class="nav-logo-sub">Unleash Your Potential</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#testimonials">Success Stories</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta-btn">Enquire Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- VIDEO BACKGROUND -->
+  <div class="hero-vid-wrap">
+    <video id="v0" class="active" autoplay muted loop playsinline preload="auto"
+      poster="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1800&q=85">
+      <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+    <video id="v1" muted loop playsinline preload="none"
+      poster="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1800&q=85">
+      <source src="https://videos.pexels.com/video-files/5198267/5198267-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+    <video id="v2" muted loop playsinline preload="none"
+      poster="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1800&q=85">
+      <source src="https://videos.pexels.com/video-files/8199553/8199553-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <button class="vid-mute" id="muteBtn">🔇</button>
+
+  <div class="hero-inner">
+    <!-- LEFT: Text -->
+    <div>
+      <div class="hero-tag" style="opacity:0;animation:fadeUp .7s ease .1s forwards">
+        Learn Better. Score Higher. Shape Your Future.
+      </div>
+      <h1 style="opacity:0;animation:fadeUp .7s ease .25s forwards">
+        Quality Coaching for<br><span>Classes 1 to 12</span>
+      </h1>
+      <div class="hero-boards" style="opacity:0;animation:fadeUp .7s ease .38s forwards">
+        ICSE &nbsp;|&nbsp; ISC &nbsp;|&nbsp; CBSE &nbsp;|&nbsp; CUET
+      </div>
+      <p class="hero-desc" style="opacity:0;animation:fadeUp .7s ease .48s forwards">
+        Conceptual learning, personalised attention and result-oriented preparation to help students achieve their dream scores. Classes 1–12 across Science, Commerce &amp; Humanities.
+      </p>
+      <div class="hero-features" style="opacity:0;animation:fadeUp .7s ease .58s forwards">
+        <div class="hfeat"><span class="hfeat-ico">👨‍🏫</span>Expert &amp; Experienced Faculty</div>
+        <div class="hfeat"><span class="hfeat-ico">🎯</span>Personal Attention</div>
+        <div class="hfeat"><span class="hfeat-ico">📊</span>Regular Tests &amp; Analysis</div>
+        <div class="hfeat"><span class="hfeat-ico">📚</span>Comprehensive Material</div>
+      </div>
+      <div class="hero-btns" style="opacity:0;animation:fadeUp .7s ease .68s forwards">
+        <a href="#courses" class="btn-yellow">Explore Courses</a>
+        <a href="#contact" class="btn-outline-h">📥 Download Brochure</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Callback form -->
+    <div class="callback-card rv">
+      <h3>Request a Call Back</h3>
+      <p class="sub">We will connect with you shortly!</p>
+      <input class="cf-input" type="text" placeholder="Parent / Student Name">
+      <input class="cf-input" type="tel" placeholder="Mobile Number">
+      <input class="cf-input" type="text" placeholder="City">
+      <select class="cf-input cf-select">
+        <option value="" disabled selected>Class / Exam Interested In</option>
+        <option>Class 1–5 (Foundation)</option>
+        <option>Class 6–8</option>
+        <option>Class 9–10 (ICSE / CBSE)</option>
+        <option>Class 11–12 (ICSE / CBSE)</option>
+        <option>CUET Preparation</option>
+      </select>
+      <button class="cf-btn" id="cbBtn">Request Callback</button>
+      <div class="cf-note">🔒 Your information is safe with us.</div>
+    </div>
+  </div>
+
+  <!-- Video switcher dots -->
+  <div class="vid-dots">
+    <button class="vdot on" data-v="0"></button>
+    <button class="vdot" data-v="1"></button>
+    <button class="vdot" data-v="2"></button>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="statsbar">
+  <div class="sbar-item">
+    <div class="sbar-icon">👨‍🎓</div>
+    <div><div class="sbar-num">120+</div><div class="sbar-lbl">Happy Students</div></div>
+  </div>
+  <div class="sbar-item">
+    <div class="sbar-icon">🏆</div>
+    <div><div class="sbar-num">100%</div><div class="sbar-lbl">Subject Score Achievers</div></div>
+  </div>
+  <div class="sbar-item">
+    <div class="sbar-icon">📈</div>
+    <div><div class="sbar-num">95%+</div><div class="sbar-lbl">Student Success Rate</div></div>
+  </div>
+  <div class="sbar-item">
+    <div class="sbar-icon">🏛️</div>
+    <div><div class="sbar-num">5+</div><div class="sbar-lbl">Years of Excellence</div></div>
+  </div>
+</div>
+
+<!-- COURSES -->
+<section class="courses" id="courses">
+  <div class="courses-head rv">
+    <div class="sec-label" style="justify-content:center">Our Courses</div>
+    <h2 class="sec-title">What We <span>Teach</span></h2>
+    <p class="sec-sub">Expert guidance across all boards and streams — from foundational learning to competitive entrance prep.</p>
+  </div>
+  <div class="courses-grid">
+    <div class="ccard rv">
+      <div class="cc-icon cc-icon-1">📘</div>
+      <div class="cc-title">Classes 1 to 5</div>
+      <div class="cc-sub">Strong Foundation</div>
+      <ul class="cc-list">
+        <li>All Core Subjects</li>
+        <li>Concept Building</li>
+        <li>Activity Based Learning</li>
+        <li>ICSE &amp; CBSE Boards</li>
+      </ul>
+      <button class="cc-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn More</button>
+    </div>
+    <div class="ccard rv">
+      <div class="cc-icon cc-icon-2">📗</div>
+      <div class="cc-title">Classes 6 to 10</div>
+      <div class="cc-sub">CBSE / ICSE</div>
+      <ul class="cc-list">
+        <li>All Core Subjects</li>
+        <li>Doubt Solving Sessions</li>
+        <li>Regular Tests</li>
+        <li>Board Exam Preparation</li>
+      </ul>
+      <button class="cc-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn More</button>
+    </div>
+    <div class="ccard rv">
+      <div class="cc-icon cc-icon-3">🎓</div>
+      <div class="cc-title">Classes 11 &amp; 12</div>
+      <div class="cc-sub">CBSE / ISC</div>
+      <ul class="cc-list">
+        <li>Science / Commerce / Arts</li>
+        <li>Board Exam Preparation</li>
+        <li>Concept + Application</li>
+        <li>Career Guidance</li>
+      </ul>
+      <button class="cc-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn More</button>
+    </div>
+    <div class="ccard rv">
+      <div class="cc-icon cc-icon-4">🎯</div>
+      <div class="cc-title">CUET Preparation</div>
+      <div class="cc-sub">UG Entrance Exam</div>
+      <ul class="cc-list">
+        <li>All CUET Domains</li>
+        <li>Mock Tests</li>
+        <li>Strategy + Mentorship</li>
+        <li>Full Syllabus Coverage</li>
+      </ul>
+      <button class="cc-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn More</button>
+    </div>
+  </div>
+</section>
+
+<!-- WHY + PRICING -->
+<section class="why-pricing" id="why">
+  <div class="wp-grid">
+    <!-- WHY -->
+    <div>
+      <div class="rv">
+        <div class="sec-label">Why Choose Gravitas?</div>
+        <h2 class="sec-title">What Makes Us <span>Different</span></h2>
+      </div>
+      <div class="why-list">
+        <div class="witem rv"><div class="wcheck">✓</div><p><strong>Personalised attention</strong> with small, focused batch sizes</p></div>
+        <div class="witem rv"><div class="wcheck">✓</div><p><strong>Conceptual clarity</strong> with a practical, application-first approach</p></div>
+        <div class="witem rv"><div class="wcheck">✓</div><p><strong>Regular assessments</strong> &amp; detailed performance tracking</p></div>
+        <div class="witem rv"><div class="wcheck">✓</div><p><strong>Experienced faculty</strong> with proven academic results</p></div>
+        <div class="witem rv"><div class="wcheck">✓</div><p><strong>Doubt clearing sessions</strong> &amp; one-on-one mentoring</p></div>
+        <div class="witem rv"><div class="wcheck">✓</div><p><strong>Parent-teacher interaction</strong> for regular progress updates</p></div>
+        <div class="witem rv"><div class="wcheck">✓</div><p><strong>5+ years</strong> of building confident, high-scoring students</p></div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div id="pricing" class="rv">
+      <div class="pricing-head">
+        <div class="sec-label">Fee Structure</div>
+        <h2 class="sec-title">Affordable <span>Monthly Fees</span></h2>
+      </div>
+      <p class="pricing-note">Quality education at transparent, honest pricing.</p>
+      <div class="pricing-grid">
+        <div class="pcard">
+          <div class="pc-class">Classes 1–5</div>
+          <div class="pc-price">₹1,500<small>/month</small></div>
+          <button class="pc-enroll" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+        </div>
+        <div class="pcard featured">
+          <div class="pc-class">Classes 6–10</div>
+          <div class="pc-price">₹2,000<small>/month</small></div>
+          <button class="pc-enroll" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+        </div>
+        <div class="pcard">
+          <div class="pc-class">Classes 11–12</div>
+          <div class="pc-price">₹2,500<small>/month</small></div>
+          <button class="pc-enroll" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+        </div>
+        <div class="pcard">
+          <div class="pc-class">CUET Prep</div>
+          <div class="pc-price">₹2,500<small>/month</small></div>
+          <button class="pc-enroll" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+        </div>
+      </div>
+      <p class="pricing-footnote">🎁 Discounts available for early enrollment and siblings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS + TESTIMONIALS -->
+<section class="results-sec" id="testimonials">
+  <div class="results-grid">
+    <!-- Results numbers -->
+    <div class="rv" style="text-align:center">
+      <div class="sec-label" style="justify-content:center">Our Results Speak</div>
+      <h2 class="sec-title" style="font-size:1.7rem">Numbers That <span>Matter</span></h2>
+      <div class="rn-grid">
+        <div class="rn-card rv"><div class="rn-num">98%</div><div class="rn-lbl">Board Results above 90%</div></div>
+        <div class="rn-card rv"><div class="rn-num">120+</div><div class="rn-lbl">Students Scored 95% &amp; Above</div></div>
+        <div class="rn-card rv" style="grid-column:span 2"><div class="rn-num">5+</div><div class="rn-lbl">Years of Academic Excellence in Dehradun</div></div>
+      </div>
+    </div>
+
+    <!-- Student testimonials -->
+    <div class="rv">
+      <h3 class="sec-title" style="font-size:1.5rem;margin-bottom:20px">What <span>Students</span> Say</h3>
+      <div class="tcard">
+        <p>"The teachers explain concepts so well and regular tests really helped me improve. I scored 96% in my board exams!"</p>
+        <div class="tcard-auth">Ananya S. <span>— Class 10 ICSE</span></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tcard">
+        <p>"Small batch size means sir actually knows where I'm struggling. Got into my dream college through CUET — Gravitas made it happen!"</p>
+        <div class="tcard-auth">Arjun M. <span>— CUET 2024</span></div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+
+    <!-- Parent testimonials -->
+    <div class="rv">
+      <h3 class="sec-title" style="font-size:1.5rem;margin-bottom:20px">What <span>Parents</span> Say</h3>
+      <div class="tcard" style="border-left-color:var(--yellow)">
+        <p>"We are so happy with the progress our child has made. The team is supportive, approachable, and always available for our queries."</p>
+        <div class="tcard-auth">Rajesh K. <span>— Parent, CBSE Class 12</span></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tcard" style="border-left-color:var(--yellow)">
+        <p>"My daughter went from average marks to topping her class in just one year. The personal attention here is truly unmatched in Dehradun."</p>
+        <div class="tcard-auth">Priya S. <span>— Parent, ISC Class 12</span></div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-icon-wrap">🎓</div>
+  <div class="cta-text">
+    <h3>Admissions Open for 2025–26</h3>
+    <p>Limited seats available! Enroll now and take the first step towards success. 2nd Centre opening soon.</p>
+  </div>
+  <div class="cta-right">
+    <div class="cta-badge">🚀 2nd Centre Coming Soon</div>
+    <a href="#contact" class="btn-yellow" style="font-size:14px;padding:14px 32px">Enquire Now →</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section style="padding:80px 6vw;background:var(--off)" id="contact">
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start">
+    <div class="rv">
+      <div class="sec-label">Get In Touch</div>
+      <h2 class="sec-title">Start Your <span>Journey Today</span></h2>
+      <p style="color:var(--muted);font-size:15px;margin-bottom:32px;line-height:1.7">Fill in the form and our team will reach out within 24 hours to discuss how Gravitas Education can help your child achieve their full potential.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div><label style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);display:block;margin-bottom:6px">Parent's Name</label><input class="cf-input" style="margin:0;background:var(--white)" type="text" placeholder="Your full name"></div>
+        <div><label style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);display:block;margin-bottom:6px">Student's Name</label><input class="cf-input" style="margin:0;background:var(--white)" type="text" placeholder="Student's name"></div>
+        <div><label style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);display:block;margin-bottom:6px">Phone Number</label><input class="cf-input" style="margin:0;background:var(--white)" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div><label style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);display:block;margin-bottom:6px">Email (Optional)</label><input class="cf-input" style="margin:0;background:var(--white)" type="email" placeholder="your@email.com"></div>
+        <div><label style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);display:block;margin-bottom:6px">Class / Grade</label>
+          <select class="cf-input cf-select" style="margin:0;background:var(--white)"><option value="">Select Class</option><option>Class 1–5</option><option>Class 6–8</option><option>Class 9–10</option><option>Class 11–12</option><option>CUET Preparation</option></select></div>
+        <div><label style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);display:block;margin-bottom:6px">Board</label>
+          <select class="cf-input cf-select" style="margin:0;background:var(--white)"><option value="">Select Board</option><option>ICSE / ISC</option><option>CBSE</option><option>CUET</option></select></div>
+      </div>
+      <textarea class="cf-input" style="margin-top:14px;margin-bottom:0;background:var(--white);height:80px;resize:none" placeholder="Message or questions (optional)..."></textarea>
+      <button id="mainSubmit" class="cf-btn" style="margin-top:14px;font-size:14px;padding:14px">Submit Enquiry →</button>
+    </div>
+    <div class="rv">
+      <h3 style="font-family:'Merriweather',serif;font-size:22px;color:var(--navy);margin-bottom:8px">Contact Information</h3>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:28px;line-height:1.6">Our team is available Monday to Saturday. We'd love to help your child grow.</p>
+      <div style="background:var(--white);border:2px solid var(--border);border-radius:6px;overflow:hidden">
+        <div style="background:var(--navy);padding:20px 24px">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.4);margin-bottom:16px;font-weight:800">Get in Touch</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px">📞</div><div><div style="font-size:12px;color:rgba(255,255,255,.45)">Phone</div><div style="font-size:14px;color:white;font-weight:700">8218464463 / 0135-3135215</div></div></div>
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px">🌐</div><div><div style="font-size:12px;color:rgba(255,255,255,.45)">Website</div><div style="font-size:14px;color:white;font-weight:700">www.gravitasedu.com</div></div></div>
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px">📍</div><div><div style="font-size:12px;color:rgba(255,255,255,.45)">Location</div><div style="font-size:14px;color:white;font-weight:700">Dehradun, Uttarakhand<br><span style="font-size:12px;color:var(--yellow2);font-weight:600">2nd Centre Opening Soon!</span></div></div></div>
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px">🕐</div><div><div style="font-size:12px;color:rgba(255,255,255,.45)">Hours</div><div style="font-size:14px;color:white;font-weight:700">Mon–Sat: 8:00 AM – 7:00 PM</div></div></div>
+          </div>
+        </div>
+        <div style="padding:20px 24px">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:14px;font-weight:800">Follow Us</div>
+          <div style="display:flex;gap:10px">
+            <a href="#" style="width:38px;height:38px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:15px;text-decoration:none">📷</a>
+            <a href="#" style="width:38px;height:38px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:15px;text-decoration:none">👍</a>
+            <a href="#" style="width:38px;height:38px;background:#dc2626;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:15px;text-decoration:none">▶</a>
+            <a href="https://wa.me/918218464463" style="width:38px;height:38px;background:#16a34a;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:15px;text-decoration:none">💬</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand-name">GRAVITAS EDUCATION</div>
+      <div class="ft-brand-sub">Coaching Institute · Dehradun</div>
+      <p class="ft-desc">Empowering students from Classes 1 to 12 with quality education for ICSE, ISC, CBSE and CUET. Building concepts, shaping careers, unleashing potential.</p>
+      <div class="ft-socials">
+        <a href="#" class="ft-soc">📷</a>
+        <a href="#" class="ft-soc">👍</a>
+        <a href="#" class="ft-soc">▶</a>
+        <a href="#" class="ft-soc">💬</a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Quick Links</h4><ul><li><a href="#">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#courses">Courses</a></li><li><a href="#why">Why Us</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#testimonials">Success Stories</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+    <div class="ft-col"><h4>Courses</h4><ul><li><a href="#courses">Classes 1 to 5</a></li><li><a href="#courses">Classes 6 to 10 (CBSE/ICSE)</a></li><li><a href="#courses">Classes 11 &amp; 12 (CBSE/ISC)</a></li><li><a href="#courses">CUET Preparation</a></li></ul></div>
+    <div class="ft-col ft-contact"><h4>Contact Us</h4>
+      <p><span>📍</span>Dehradun, Uttarakhand<br>2nd Centre — Coming Soon</p>
+      <p><span>📞</span>8218464463<br>0135-3135215</p>
+      <p><span>🌐</span>www.gravitasedu.com</p>
+      <p><span>🕐</span>Mon–Sat: 8 AM – 7 PM</p>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Gravitas Education, Dehradun. All Rights Reserved.</p>
+    <div style="display:flex;gap:20px"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+  </div>
+</footer>
+
+<script>
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-72,behavior:'smooth'})}
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}});
+},{threshold:0.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ── VIDEO CONTROLLER ── */
+(function(){
+  const vids=[document.getElementById('v0'),document.getElementById('v1'),document.getElementById('v2')];
+  const dots=document.querySelectorAll('.vdot');
+  let cur=0,timer=null,muted=true;
+
+  vids[0].play().catch(()=>{});
+
+  function switchTo(i){
+    if(i===cur)return;
+    vids[cur].classList.remove('active');
+    dots[cur].classList.remove('on');
+    cur=i;
+    vids[cur].load();
+    vids[cur].muted=muted;
+    vids[cur].play().catch(()=>{});
+    vids[cur].classList.add('active');
+    dots[cur].classList.add('on');
+  }
+
+  function startAuto(){
+    clearInterval(timer);
+    timer=setInterval(()=>switchTo((cur+1)%vids.length),8000);
+  }
+  startAuto();
+
+  dots.forEach(d=>d.addEventListener('click',()=>{
+    switchTo(parseInt(d.dataset.v));
+    clearInterval(timer);startAuto();
+  }));
+
+  const mb=document.getElementById('muteBtn');
+  if(mb) mb.addEventListener('click',()=>{
+    muted=!muted;
+    vids.forEach(v=>v.muted=muted);
+    mb.textContent=muted?'🔇':'🔊';
+  });
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight')switchTo((cur+1)%vids.length);
+    if(e.key==='ArrowLeft')switchTo((cur+vids.length-1)%vids.length);
+  });
+})();
+
+/* ── FORM BUTTONS ── */
+document.getElementById('cbBtn').addEventListener('click',function(){
+  this.textContent='✓ We\'ll call you back shortly!';
+  this.style.background='var(--success)';
+  this.disabled=true;
+});
+document.getElementById('mainSubmit').addEventListener('click',function(){
+  this.textContent='✓ Submitted — We\'ll reach out within 24 hrs';
+  this.style.background='var(--success)';
+  this.disabled=true;
+});
+</script>
+</body>
+</html>
