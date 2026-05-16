@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravitas Education – Unleash Your Potential</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap"
+    rel="stylesheet">
+<link src="css/gravitas.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a class="nav-logo" href="#">
+      <img src="img/Glogo.png" class="logo" alt="Gravitas Education Logo">
+      <div class="nav-brand"><span>GRAVITAS</span> EDUCATION</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#expansion">New Centre</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="goto('#contact')">Enquire Now</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <!-- VIDEO BACKGROUND -->
+    <div class="hero-video-wrap">
+      <video id="vid0" class="active" autoplay muted loop playsinline preload="auto"
+        poster="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1800&q=85">
+        <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+      <video id="vid1" muted loop playsinline preload="none"
+        poster="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1800&q=85">
+        <source src="https://videos.pexels.com/video-files/5198267/5198267-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+      <video id="vid2" muted loop playsinline preload="none"
+        poster="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1800&q=85">
+        <source src="https://videos.pexels.com/video-files/8199553/8199553-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+      <video id="vid3" muted loop playsinline preload="none"
+        poster="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1800&q=85">
+        <source src="https://videos.pexels.com/video-files/6256831/6256831-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="hero-overlay"></div>
+    <div class="hero-texture"></div>
+
+    <!-- Mute toggle -->
+    <button class="hero-mute" id="muteBtn" title="Toggle sound">🔇</button>
+
+    <!-- Video dots switcher -->
+    <div class="hero-switcher">
+      <button class="vsw-dot active" data-vid="0"></button>
+      <button class="vsw-dot" data-vid="1"></button>
+      <button class="vsw-dot" data-vid="2"></button>
+      <button class="vsw-dot" data-vid="3"></button>
+    </div>
+
+    <!-- Live pulse label -->
+    <div class="hero-vid-label">
+      <div class="vid-label-dot"></div>
+      <span class="vid-label-txt">Live Campus</span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Trusted Destination for Academic Excellence</div>
+      <h1>Unleash<br><em>Your Potential</em></h1>
+      <p class="hero-sub">Classes 1–12 &nbsp;·&nbsp; ICSE/ISC &nbsp;·&nbsp; CBSE &nbsp;·&nbsp; CUET<br>Expert guidance.
+        Personalized attention. Proven results.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-white">Enquire for Admissions</a>
+        <a href="#about" class="btn-outline-w">Discover Our Story</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num">120+</span>
+        <div class="hstat-lbl">Students</div>
+      </div>
+      <div class="hstat"><span class="hstat-num">100%</span>
+        <div class="hstat-lbl">Subject Scores</div>
+      </div>
+      <div class="hstat"><span class="hstat-num">4+</span>
+        <div class="hstat-lbl">Years</div>
+      </div>
+      <div class="hstat"><span class="hstat-num">95–100</span>
+        <div class="hstat-lbl">% Achieved</div>
+      </div>
+    </div>
+    <div class="hero-band"></div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>ICSE / ISC</span><span class="dot">◆</span><span>CBSE</span><span class="dot">◆</span><span>CUET
+        Preparation</span><span class="dot">◆</span><span>Classes 1–12</span><span class="dot">◆</span><span>Science ·
+        Commerce · Humanities</span><span class="dot">◆</span><span>2nd Centre Coming Soon</span><span
+        class="dot">◆</span><span>Admissions Open</span><span class="dot">◆</span><span>Dehradun,
+        Uttarakhand</span><span class="dot">◆</span>
+      <span>ICSE / ISC</span><span class="dot">◆</span><span>CBSE</span><span class="dot">◆</span><span>CUET
+        Preparation</span><span class="dot">◆</span><span>Classes 1–12</span><span class="dot">◆</span><span>Science ·
+        Commerce · Humanities</span><span class="dot">◆</span><span>2nd Centre Coming Soon</span><span
+        class="dot">◆</span><span>Admissions Open</span><span class="dot">◆</span><span>Dehradun,
+        Uttarakhand</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="ann">
+    <div class="ann-tag">🎉 Big News</div>
+    <p class="ann-txt">Gravitas Education is expanding — our <strong>2nd Centre</strong> is coming soon to serve more
+      students across Dehradun.</p>
+    <a href="#expansion" class="ann-lnk">Learn More →</a>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-imgwrap rv">
+        <img class="about-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=85"
+          alt="Students learning" loading="lazy">
+        <div class="about-corner"></div>
+        <div class="about-badge"><strong>4+</strong><span>Years of Excellence</span></div>
+      </div>
+      <div class="rv">
+        <div class="lbl">Our Story</div>
+        <h2 class="ttl">Where Every Student <em>Matters</em></h2>
+        <div class="about-txt">
+          <p>What started as a small initiative driven by a passion for quality education has grown into Dehradun's most
+            trusted learning space. Over <strong>4+ years</strong>, we have mentored over a thousand students — building
+            a reputation for strong results and genuine personal care.</p>
+          <p>Our experienced faculty guide students from <strong>Classes 1 to 12</strong> across ICSE/ISC, CBSE, and
+            CUET examinations — covering Science, Commerce, and Humanities streams with equal dedication.</p>
+          <div class="about-quote">
+            <p>"We believe education should shape not just successful students — but better human beings with values,
+              empathy, and purpose."</p>
+          </div>
+        </div>
+        <div class="chips">
+          <div class="chip">ICSE/ISC, CBSE, CUET</div>
+
+        </div>
+        <div class="chips">
+          <div class="chip1">Science</div>
+          <div class="chip1">Commerce</div>
+          <div class="chip1">Humanities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-sec">
+    <div class="stats-in">
+      <div class="stats-top rv">
+
+        <div class="lbl" style="color:rgba(126,184,255,0.6)">First Centre — By the Numbers</div>
+        <div>
+          <h2 class="ttl ttl-w">A Record of <em>Proven Excellence</em></h2>
+        </div>
+      </div>
+      <!-- <p style="color:#7eb8ff;font-size:18px;line-height:1.7"><span style="color: white; font-size: 20px;">4+</span> years. <span style="color: white; font-size: 20px;">1500+</span> of students. Countless <span style="color: white; font-size: 20px;">95–100% </span>scores. Our track record speaks for itself — and drives us to reach even more learners.</p> -->
+
+      <div class="stats-grid">
+        <div class="sc rv">
+          <img src="https://as1.ftcdn.net/v2/jpg/07/17/81/84/1000_F_717818478_4ksV8oZPVxWyefPBNJ7C6ZPPA9uTDhEp.jpg"
+            alt="Students" loading="lazy">
+          <div class="sc-body"><span class="sc-num">1500+</span>
+            <div class="sc-lbl">Students Mentored</div>
+          </div>
+        </div>
+        <div class="sc rv">
+          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=70" alt="Scores"
+            loading="lazy">
+          <div class="sc-body"><span class="sc-num">100/100 </span>
+            <div class="sc-lbl">In Multiple Subjects</div>
+          </div>
+        </div>
+        <div class="sc rv">
+          <img src="https://as1.ftcdn.net/v2/jpg/06/72/16/24/1000_F_672162482_Ih0VVvbFURqsMiVizprzr2XXcOuY4pK9.jpg"
+            alt="Results" loading="lazy">
+          <div class="sc-body"><span class="sc-num">95%+ </span>
+            <div class="sc-lbl">Achievers Across Boards</div>
+          </div>
+        </div>
+        <div class="sc rv">
+          <img src="https://as1.ftcdn.net/v2/jpg/09/58/04/90/1000_F_958049016_itPoRHI9SuTPqYt6jdwRaLVvNG43L17c.jpg"
+            alt="Excellence" loading="lazy">
+          <div class="sc-body"><span class="sc-num">4+</span>
+            <div class="sc-lbl">Years of Excellence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section class="courses" id="courses">
+    <div class="courses-head">
+      <div>
+        <div class="lbl">What We Offer</div>
+        <h2 class="ttl">Courses & <em>Programmes</em></h2>
+      </div>
+      <p>Comprehensive academic support across all major curricula and streams, tailored to each student's unique
+        learning journey — from foundational classes to competitive exam prep.</p>
+    </div>
+    <div class="courses-grid">
+      <div class="cc rv">
+        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="ICSE ISC"
+          loading="lazy">
+        <div class="cc-body">
+          <div class="cc-tag">Primary & Middle School
+          </div>
+          <h3>School Foundation</h3>
+          <p>Concept-driven learning focused on strong fundamentals, individual attention, and practice-based
+            improvement</p>
+          <div class="cc-foot">
+            <div><span>Classes</span><br><strong>1–8· All Subjects</strong></div>
+            <div class="cc-arr">→</div>
+          </div>
+        </div>
+      </div>
+      <div class="cc rv">
+        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&q=80" alt="CBSE" loading="lazy">
+        <div class="cc-body">
+          <div class="cc-tag">ICSC/ISC, CBSE</div>
+          <h3>Board Mastery</h3>
+          <p>Board-aligned coaching with emphasis on board exam performance and strong competitive foundations across
+            all three streams.</p>
+          <div class="cc-foot">
+            <div><span>Classes</span><br><strong>9–12 · All Streams</strong></div>
+            <div class="cc-arr">→</div>
+          </div>
+        </div>
+      </div>
+      <div class="cc rv">
+        <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&q=80" alt="CUET" loading="lazy">
+        <div class="cc-body">
+          <div class="cc-tag">CUET</div>
+          <h3>CUET Preparation</h3>
+          <p>Targeted coaching for the Common University Entrance Test — domain subjects, general aptitude, and language
+            proficiency.</p>
+          <div class="cc-foot">
+            <div><span>Classes</span><br><strong>11–12 · Post-Board</strong></div>
+            <div class="cc-arr">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why" id="why">
+    <div class="why-grid">
+      <div class="why-imgcol"></div>
+      <div class="why-cnt">
+        <div class="lbl">Why Choose Us</div>
+        <h2 class="ttl ttl-w">Education That <em>Transforms</em></h2>
+        <div>
+          <div class="witem">
+            <div class="wnum">01</div>
+            <div class="wcnt">
+              <h4>Expert & Dedicated Faculty</h4>
+              <p><span style="color: #7eb8ff;">Highly qualified teachers committed to every student's success — in every
+                  subject, at every level.</span></p>
+            </div>
+          </div>
+          <div class="witem">
+            <div class="wnum">02</div>
+            <div class="wcnt">
+              <h4>Personal Attention & Small Batches</h4>
+              <p><span style="color: #7eb8ff;">Intentionally small groups ensure every student receives focused,
+                  individual guidance.</span></p>
+            </div>
+          </div>
+          <div class="witem">
+            <div class="wnum">03</div>
+            <div class="wcnt">
+              <h4>Holistic Development</h4>
+              <p><span style="color: #7eb8ff;">Beyond academics — we nurture confidence, critical thinking, and values
+                  that shape well-rounded individuals.</span></p>
+            </div>
+          </div>
+          <div class="witem">
+            <div class="wnum">04</div>
+            <div class="wcnt">
+              <h4>Regular Test & Performance Tracking</h4>
+              <p><span style="color: #7eb8ff;">Periodic tests and progress analysis for disciplined exam
+                  preparation.</span></p>
+            </div>
+          </div>
+          <div class="witem">
+            <div class="wnum">05</div>
+            <div class="wcnt">
+              <h4>Offline/Online Mode</h4>
+              <p><span style="color: #7eb8ff;">Seamless offline and online classes for flexible, effective
+                  learning.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="gal-head rv">
+      <div class="lbl">Life at Gravitas</div>
+      <h2 class="ttl">Our Learning <em>Environment</em></h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gimg gimg-tall rv"><img
+          src="https://4.imimg.com/data4/KQ/CR/MY-2244222/digital-classroom-solution-500x500.jpg" alt="Expert Faculty"
+          loading="lazy">
+        <div class="gov"><span>Expert Faculty</span></div>
+      </div>
+      <div class="gimg rv"><img
+          src="https://timess3spore.s3.amazonaws.com/ndata/et_images/desktop_image_webp/bb57cece165ecbf71c318758e1e96350CBSE-Board-exam-for-portal.webp"
+          alt="Students" loading="lazy">
+        <div class="gov"><span>Dedicated Students</span></div>
+      </div>
+      <div class="gimg rv"><img src="https://im.rediff.com/getahead/2020/aug/07online-classes1.jpg" alt="Attention"
+          loading="lazy">
+        <div class="gov"><span>Individual Attention</span></div>
+      </div>
+      <div class="gimg rv"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&q=80"
+          alt="Learning" loading="lazy">
+        <div class="gov"><span>Focused Learning</span></div>
+      </div>
+      <div class="gimg rv"><img
+          src="https://www.themanthanschool.co.in/blog/wp-content/uploads/2020/03/Importance-of-Play-in-Student.jpg"
+          alt="Results" loading="lazy">
+        <div class="gov"><span>Activity</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi">
+    <div style="text-align:center" class="rv">
+      <div class="lbl" style="justify-content:center">What Parents & Students Say</div>
+      <h2 class="ttl" style="max-width:460px;margin:0 auto">Voices of <em>Trust</em></h2>
+    </div>
+    <div class="tgrid">
+      <div class="tc rv">
+        <p>My sincere thanks to Gravitas in securing perfect score in History & Civics. The faculty’s expert guidance
+          and disciplined approach helped me perform with confidence in the board exams.</p>
+        <div class="tc-auth">
+          <div class="tc-av">K</div>
+          <div>
+            <div class="tc-name">Kritika Agarwal</div>
+            <div class="tc-role">100/100 History & Civics. Hopetown School</div>
+          </div>
+        </div>
+      </div>
+      <div class="tc rv">
+        <p>Gravitas helped me not just crack CUET but actually understand my subject deeply. The faculty genuinely cares
+          about every student's growth and future.</p>
+        <div class="tc-auth">
+          <div class="tc-av">A</div>
+          <div>
+            <div class="tc-name">Arjun Mehta</div>
+            <div class="tc-role">Student · CUET 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="tc rv">
+        <p>The personal attention our son receives is something you rarely find. He has grown not just academically but
+          in confidence and character.</p>
+        <div class="tc-auth">
+          <div class="tc-av">R</div>
+          <div>
+            <div class="tc-name">Rahul Verma</div>
+            <div class="tc-role">Parent · CBSE Class 10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPANSION -->
+  <section class="expansion" id="expansion">
+    <div class="exp-bg"></div>
+    <div class="exp-bg2"></div>
+    <div class="exp-in">
+      <div class="exp-left rv">
+        <div class="lbl">Big News</div>
+        <div class="exp-badge">2nd Centre — Coming Soon</div>
+        <h2 class="ttl ttl-w">We Are <em>Growing!</em></h2>
+        <p>Driven by stupendous success and inspired by the unwavering trust of our students and families, Gravitas
+          Education is proud to announce our second centre in Dehradun.</p>
+        <p>The new location brings quality education even closer to more students — with the same commitment, expertise,
+          and heart.</p>
+        <p style="color:#7eb8ff;font-weight:600;font-size:16px;margin-bottom:28px">New Beginning. Same Commitment.</p>
+        <a href="#contact" class="btn-white">Register Your Interest</a>
+      </div>
+      <div class="exp-card rv">
+        <div class="exp-card-title">What to <span>Expect</span></div>
+        <ul class="exp-list">
+          <li>Classes 1 to 12 — all boards covered</li>
+          <li>ICSE/ISC, CBSE & CUET preparation</li>
+          <li>Science, Commerce & Humanities streams</li>
+          <li>Expert faculty with proven results</li>
+          <li>Small batches with personal attention</li>
+          <li>Holistic development at the core</li>
+          <li>Quality education closer to your home</li>
+          <li>Admissions opening very soon</li>
+        </ul>
+        <div class="exp-cta">
+          <p>Be the first to know when admissions open.</p>
+          <a href="#contact" class="btn-white" style="font-size:12px;padding:12px 28px">Get Notified →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <!-- <section class="contact" id="contact">
+    <div class="contact-grid">
+      <div class="rv">
+        <div class="lbl">Get In Touch</div>
+        <h2 class="ttl">Start Your <em>Journey</em></h2>
+        <p class="sub">Fill in the form and our team will reach out within 24 hours to discuss how we can help your
+          child achieve their full potential.</p>
+        <div class="fr">
+          <div class="fg"><label>Parent's Name</label><input type="text" placeholder="Your full name"></div>
+          <div class="fg"><label>Student's Name</label><input type="text" placeholder="Student's name"></div>
+        </div>
+        <div class="fr">
+          <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        </div>
+        <div class="fr">
+          <div class="fg"><label>Class / Grade</label>
+            <select>
+              <option value="">Select Class</option>
+              <option>Class 1–5</option>
+              <option>Class 6–8</option>
+              <option>Class 9–10</option>
+              <option>Class 11–12</option>
+              <option>CUET Preparation</option>
+            </select>
+          </div>
+          <div class="fg"><label>Curriculum</label>
+            <select>
+              <option value="">Select Board</option>
+              <option>ICSE / ISC</option>
+              <option>CBSE</option>
+              <option>CUET</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><label>Message (Optional)</label><textarea
+            placeholder="Tell us about your child's needs..."></textarea></div>
+        <button id="submitBtn"
+          style="width:100%;padding:16px;font-size:14px;cursor:pointer;border:none;background:var(--blue-dark);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background .2s">Submit
+          Enquiry →</button>
+      </div>
+    </div>
+  </section> -->
+  <section class="contact" id="contact">
+    <div style="text-align:center;margin-bottom:70px" class="rv">
+      <div class="lbl" style="justify-content:center">Get In Touch</div>
+      <h2 class="ttl">Visit Our <em>Centres</em></h2>
+      <p class="sub" style="max-width:720px;margin:18px auto 0">
+        Connect with Gravitas Education for admissions, counselling, and academic guidance.
+        Our team is here to help students unlock their full potential.
+      </p>
+    </div>
+    <div class="contact-grid">
+      <!-- MAIN CENTRE -->
+      <div class="contact-card rv">
+        <div class="contact-top">
+          <div>
+            <div class="contact-tag">Main Centre</div>
+          </div>
+        </div>
+        <div class="contact-items">
+          <div class="citem">
+            <div class="cicon">📞</div>
+            <div>
+              <span>Phone</span>
+              <p>8218464463 · 0135-3135215</p>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="cicon">✉️</div>
+            <div>
+              <span>Email</span>
+              <p>infogravitasedu@gmail.com</p>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="cicon">📍</div>
+            <div>
+              <span>Address</span>
+              <p> Dehradun</p>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="cicon">🕐</div>
+            <div>
+              <span>Hours</span>
+              <p>Mon – Sat · 10:00 AM – 9:00 PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="c-map">
+          <iframe src="https://www.google.com/maps?q=30.3292681,78.0443346&hl=en&z=16&output=embed" width="100%"
+            height="100%" style="border:0;" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+      <!-- SECOND CENTRE -->
+      <div class="contact-card rv">
+        <div class="contact-top">
+          <div>
+            <div class="contact-tag">2nd Centre</div>
+          </div>
+        </div>
+        <div class="contact-items">
+          <div class="citem">
+            <div class="cicon">📞</div>
+            <div>
+              <span>Phone</span>
+              <p>8218464463</p>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="cicon">✉️</div>
+            <div>
+              <span>Email</span>
+              <p>infogravitasedu@gmail.com</p>
+            </div>
+          </div>
+          <div class="citem">
+
+            <div class="cicon">📍</div>
+            <div class="address">
+              <span>Address</span>
+              <p>
+                12, Chakdalanwala,
+                Upper Rajiv Nagar,
+                Dehradun, Uttarakhand 248014
+              </p>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="cicon">🕐</div>
+            <div>
+              <span>Hours</span>
+              <p>Mon – Sat · 10:00 AM – 9:00 PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="c-map">
+          <iframe src="https://www.google.com/maps?q=30.2989896,78.0679219&hl=en&z=16&output=embed" width="100%"
+            height="100%" style="border:0;" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="ft">
+      <div>
+        <div class="fb-name"><span>GRAVITAS</span> EDUCATION</div>
+        <div class="fb-tag">Unleash your potential...</div>
+        <p class="fb-desc">Dehradun's trusted learning centre for Classes 1–12.<br>ICSE/ISC, CBSE & CUET. Five years of
+          proven excellence.</p>
+      </div>
+      <div class="fc">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#why">Why Gravitas</a></li>
+          <li><a href="#expansion">New Centre</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="#courses">ICSE / ISC</a></li>
+          <li><a href="#courses">CBSE</a></li>
+          <li><a href="#courses">CUET</a></li>
+          <li><a href="#courses">Classes 1–12</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:8218464463">8218464463</a></li>
+          <li><a href="tel:01353135215">0135-3135215</a></li>
+          <li><a href="#">gravitasedu.com</a></li>
+          <li><a href="#contact">Enquire Now</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fb">
+      <p>© 2026 Gravitas Education, Dehradun. All rights reserved.</p>
+      <p><a href="#">www.gravitasedu.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function goto(sel) { const t = document.querySelector(sel); if (t) window.scrollTo({ top: t.offsetTop - 72, behavior: 'smooth' }) }
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 72, behavior: 'smooth' }) }
+      });
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target) } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').style.padding = window.scrollY > 60 ? '11px 6vw' : '16px 6vw';
+    });
+    const sb = document.getElementById('submitBtn');
+    sb.addEventListener('mouseenter', () => { if (!sb.disabled) sb.style.background = '#2563c4' });
+    sb.addEventListener('mouseleave', () => { if (!sb.disabled) sb.style.background = 'var(--blue-dark)' });
+    sb.addEventListener('click', function () {
+      this.textContent = '✓ Submitted — We\'ll reach out within 24 hrs';
+      this.style.background = '#166534'; this.disabled = true;
+    });
+
+    /* ── VIDEO BACKGROUND CONTROLLER ── */
+    (function () {
+      const videos = [
+        document.getElementById('vid0'),
+        document.getElementById('vid1'),
+        document.getElementById('vid2'),
+        document.getElementById('vid3')
+      ];
+      const dots = document.querySelectorAll('.vsw-dot');
+      const labels = ['Live Campus', 'Students', 'Classroom', 'Learning'];
+      const labelEl = document.querySelector('.vid-label-txt');
+      let current = 0;
+      let autoTimer = null;
+      let isMuted = true;
+
+      // Start playing first video immediately
+      videos[0].play().catch(() => { });
+
+      function switchTo(idx) {
+        if (idx === current) return;
+
+        // Fade out current
+        videos[current].classList.remove('active');
+        dots[current].classList.remove('active');
+
+        // Start loading + playing new video
+        current = idx;
+        const v = videos[current];
+        v.load();
+        v.play().catch(() => { });
+        v.classList.add('active');
+        dots[current].classList.add('active');
+        if (labelEl) labelEl.textContent = labels[current];
+      }
+
+      function startAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => {
+          switchTo((current + 1) % videos.length);
+        }, 7000);
+      }
+
+      startAuto();
+
+      // Dot click
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          switchTo(parseInt(dot.dataset.vid));
+          clearInterval(autoTimer);
+          startAuto(); // reset timer
+        });
+      });
+
+      // Mute toggle
+      const muteBtn = document.getElementById('muteBtn');
+      if (muteBtn) {
+        muteBtn.addEventListener('click', () => {
+          isMuted = !isMuted;
+          videos.forEach(v => { v.muted = isMuted; });
+          muteBtn.textContent = isMuted ? '🔇' : '🔊';
+        });
+      }
+
+      // Keyboard nav: left/right arrows
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') switchTo((current + 1) % videos.length);
+        if (e.key === 'ArrowLeft') switchTo((current + videos.length - 1) % videos.length);
+      });
+    })();
+  </script>
+</body>
+
+</html>
