@@ -113,8 +113,7 @@
   <section class="about" id="about">
     <div class="about-grid">
       <div class="about-imgwrap rv">
-        <img class="about-img" src="img/img3.jpg"
-          alt="Students learning" loading="lazy">
+        <img class="about-img" src="img/img3.jpg" alt="Students learning" loading="lazy">
         <div class="about-badge"><strong>4+</strong><span>Years of Excellence</span></div>
       </div>
       <div class="rv">
@@ -305,8 +304,8 @@
     </div>
     <div class="gal-grid">
       <div class="gimg gimg-tall rv"><img
-          src="https://img.magnific.com/premium-photo/diverse-indian-office-conference-room-young-south-asian-ceo-makes-presentation-entrepreneurs_1313853-199241.jpg?w=1480" alt="Expert Faculty"
-          loading="lazy">
+          src="https://img.magnific.com/premium-photo/diverse-indian-office-conference-room-young-south-asian-ceo-makes-presentation-entrepreneurs_1313853-199241.jpg?w=1480"
+          alt="Expert Faculty" loading="lazy">
         <div class="gov"><span>Expert Faculty</span></div>
       </div>
       <div class="gimg rv"><img
@@ -314,17 +313,14 @@
           alt="Students" loading="lazy">
         <div class="gov"><span>Dedicated Students</span></div>
       </div>
-      <div class="gimg rv"><img src="img/img1.jpg" alt="Attention"
-          loading="lazy">
+      <div class="gimg rv"><img src="img/img1.jpg" alt="Attention" loading="lazy">
         <div class="gov"><span>Individual Attention</span></div>
       </div>
       <div class="gimg rv"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&q=80"
           alt="Learning" loading="lazy">
         <div class="gov"><span>Focused Learning</span></div>
       </div>
-      <div class="gimg rv"><img
-          src="img/img2.jpg"
-          alt="Results" loading="lazy">
+      <div class="gimg rv"><img src="img/img2.jpg" alt="Results" loading="lazy">
         <div class="gov"><span>Activity</span></div>
       </div>
     </div>
@@ -475,7 +471,7 @@
             <div class="cicon">📞</div>
             <div>
               <span>Phone</span>
-              <p>8218464463 · 0135-3135215</p>
+              <p>9997226644</p>
             </div>
           </div>
           <div class="citem">
@@ -489,7 +485,7 @@
             <div class="cicon">📍</div>
             <div>
               <span>Address</span>
-              <p> Dharampur Danda, Near Ambiwala Gurudwara, Upper Badrish Colony, Dehradun</p>
+              <p>GRAVITAS Education 66 Neshvilla Road, (near Ashley Hall, Rajpur Road ) , Dehradun </p>
             </div>
           </div>
           <div class="citem">
@@ -501,8 +497,10 @@
           </div>
         </div>
         <div class="c-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1722.4291595159445!2d78.0663381!3d30.2980948!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909298ec53d283d%3A0xbbeac0f149a464b6!2sEnterance%20of%20the%20Gurdwara!5e0!3m2!1sen!2sin!4v1779085125748!5m2!1sen!2sin" width="100%"
-            height="100%" style="border:0;" loading="lazy">
+          <iframe
+            src="https://www.google.com/maps?q=2nd+Floor,+Gravitas+Education,+N+N+Tower,+Ring+Rd,+opposite+Ambiwala+Gurudwara,+Upper+Nathanpur,+Dehradun,+Uttarakhand+248005&output=embed"
+            width="100%" height="100%" style="border:0;" loading="lazy" allowfullscreen=""
+            referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
       </div>
@@ -534,7 +532,8 @@
             <div class="address">
               <span>Address</span>
               <p>
-                 2nd Floor, N N Tower, Ring Rd, opposite Ambiwala Gurudwara, Upper Nathanpur, Dehradun, Uttarakhand 248005
+                2nd Floor, N N Tower, Ring Rd, opposite Ambiwala Gurudwara, Upper Nathanpur, Dehradun, Uttarakhand
+                248005
               </p>
             </div>
           </div>
@@ -547,15 +546,9 @@
           </div>
         </div>
         <div class="c-map">
-          <iframe
-  src="https://www.google.com/maps?q=30.2854870,78.0728380&z=17&output=embed"
-  width="100%"
-  height="100%"
-  style="border:0;"
-  loading="lazy"
-  allowfullscreen=""
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+          <iframe src="https://www.google.com/maps?q=30.2854870,78.0728380&z=17&output=embed" width="100%" height="100%"
+            style="border:0;" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
@@ -627,109 +620,109 @@
     });
 
     /* ── VIDEO BACKGROUND CONTROLLER ── */
- (function () {
+    (function () {
 
-    const videos = [
-      document.getElementById('vid0'),
-      document.getElementById('vid1'),
-      document.getElementById('vid2'),
-      document.getElementById('vid3')
-    ];
+      const videos = [
+        document.getElementById('vid0'),
+        document.getElementById('vid1'),
+        document.getElementById('vid2'),
+        document.getElementById('vid3')
+      ];
 
-    const dots = document.querySelectorAll('.vsw-dot');
-    const labels = ['Live Campus', 'Students', 'Classroom', 'Learning'];
-    const labelEl = document.querySelector('.vid-label-txt');
+      const dots = document.querySelectorAll('.vsw-dot');
+      const labels = ['Live Campus', 'Students', 'Classroom', 'Learning'];
+      const labelEl = document.querySelector('.vid-label-txt');
 
-    let current = 0;
-    let autoTimer;
-    let isMuted = true;
+      let current = 0;
+      let autoTimer;
+      let isMuted = true;
 
-    // Play first video
-    videos[0].play().catch(err => console.log(err));
+      // Play first video
+      videos[0].play().catch(err => console.log(err));
 
-    function switchTo(idx) {
+      function switchTo(idx) {
 
-      if (idx === current) return;
+        if (idx === current) return;
 
-      // Hide current video
-      videos[current].classList.remove('active');
-      dots[current].classList.remove('active');
+        // Hide current video
+        videos[current].classList.remove('active');
+        dots[current].classList.remove('active');
 
-      // Pause previous video
-      videos[current].pause();
+        // Pause previous video
+        videos[current].pause();
 
-      // New video
-      current = idx;
-      const nextVideo = videos[current];
+        // New video
+        current = idx;
+        const nextVideo = videos[current];
 
-      // Reset and play
-      nextVideo.currentTime = 0;
-      nextVideo.play().catch(err => console.log(err));
+        // Reset and play
+        nextVideo.currentTime = 0;
+        nextVideo.play().catch(err => console.log(err));
 
-      // Show new video
-      nextVideo.classList.add('active');
-      dots[current].classList.add('active');
+        // Show new video
+        nextVideo.classList.add('active');
+        dots[current].classList.add('active');
 
-      // Update label
-      if (labelEl) {
-        labelEl.textContent = labels[current];
+        // Update label
+        if (labelEl) {
+          labelEl.textContent = labels[current];
+        }
       }
-    }
 
-    function startAuto() {
+      function startAuto() {
 
-      autoTimer = setInterval(() => {
+        autoTimer = setInterval(() => {
 
-        let next = (current + 1) % videos.length;
-        switchTo(next);
+          let next = (current + 1) % videos.length;
+          switchTo(next);
 
-      }, 7000);
+        }, 7000);
 
-    }
+      }
 
-    startAuto();
+      startAuto();
 
-    // Dot click
-    dots.forEach(dot => {
+      // Dot click
+      dots.forEach(dot => {
 
-      dot.addEventListener('click', () => {
+        dot.addEventListener('click', () => {
 
-        clearInterval(autoTimer);
+          clearInterval(autoTimer);
 
-        switchTo(parseInt(dot.dataset.vid));
+          switchTo(parseInt(dot.dataset.vid));
 
-        startAuto();
+          startAuto();
+
+        });
 
       });
 
-    });
+      // Mute button
+      const muteBtn = document.getElementById('muteBtn');
 
-    // Mute button
-    const muteBtn = document.getElementById('muteBtn');
+      muteBtn.addEventListener('click', () => {
 
-    muteBtn.addEventListener('click', () => {
+        isMuted = !isMuted;
 
-      isMuted = !isMuted;
-
-      videos.forEach(v => {
-        v.muted = isMuted;
+        videos.forEach(v => {
+          v.muted = isMuted;
+        });
       });
-    });
 
-    // Keyboard arrows
-    document.addEventListener('keydown', e => {
+      // Keyboard arrows
+      document.addEventListener('keydown', e => {
 
-      if (e.key === 'ArrowRight') {
-        switchTo((current + 1) % videos.length);
-      }
+        if (e.key === 'ArrowRight') {
+          switchTo((current + 1) % videos.length);
+        }
 
-      if (e.key === 'ArrowLeft') {
-        switchTo((current - 1 + videos.length) % videos.length);
-      }
+        if (e.key === 'ArrowLeft') {
+          switchTo((current - 1 + videos.length) % videos.length);
+        }
 
-    });
+      });
 
-  })();
+    })();
   </script>
 </body>
 
